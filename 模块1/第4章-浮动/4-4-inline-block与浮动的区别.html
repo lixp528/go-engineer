@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+
+
+<style>
+    ul{
+        width: 200px;
+    }
+    li{
+        list-style: none;
+        width: 100px;
+        height: 150px;
+        background: green;
+        font-size: 20px;
+        text-align: center;
+        line-height: 150px;
+        float: left;
+
+    }
+</style>
+<body>
+    
+    <!-- 通过浮动可以使li在一行中显示  通过ul的width可以确定每行显示几个 -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+        <!-- 观察下面这个列表 分别在 float：left
+                                    display：inline-block
+                                    的区别            
+        -->
+    <ul>
+            <li>1</li>
+            <li style="height:200px;">2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+</body>
+</html>

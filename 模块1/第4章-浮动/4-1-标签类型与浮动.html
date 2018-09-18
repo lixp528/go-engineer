@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <style>
+        div{
+            width:100px;
+            height: 100px;
+            background: red;
+            color:aqua;
+            float:left;
+        }
+    </style>
+
+
+</head>
+<body>
+    <!-- 
+        标签分类  块元素 行内元素  行内块元素
+        
+        块元素的特征
+        div h1-h6 p ul li ol dl dt dd header nav footer section article aside
+            1 默认独占一行
+            2 没有给宽度的时候 宽度是auto 与父级相同
+            3 支持所有的css命令
+
+
+        行内元素
+        a span strong em mark img time
+            1 内容撑开高和宽 宽高都是auto 显示出来的的是高和宽撑开的
+            2 不支持css设置高宽
+            3 不支持上下的margin和padding 支持左右的
+                    上下的padding有问题 虽然把背景撑出来了 但只是表面现象 对其他元素没有影响
+            4 所有的代码都会在一行显示
+            5 代码换行会解析成空格
+
+
+        行内块元素
+        display：inline-block
+        特征：
+                1 支持设置宽高
+                2 在一行中显示
+                3 不给宽高的话 默认为内容撑开
+                4 代码换行会被解析成一个空格
+                5 ie6/7不支持块元素的inline-block
+    -->
+
+
+    <!-- 浮动
+        除了inline-block 还可以通过浮动使得元素在同一行中显示
+        
+        
+        浮动 float
+        定义 
+            使元素脱离文档流 按照指定的方向发生移动 遇到父级的边界或者相邻的浮动元素就会停下来
+        值 
+            left right none
+        特征
+            1 块元素可以在一行内显示
+            2 按照指定的方向移动 遇到父级边界或者相邻的浮动元素停下来
+            2 行内元素支持宽高
+            3脱离文档流
+                浮动后的元素（没有浮动）的位置是从前面浮动的元素的位置开始的
+    -->
+    <div>
+        div1
+    </div>
+
+    <div>
+        div2
+    </div>
+    <span>这是一个span</span>
+</body>
+</html>

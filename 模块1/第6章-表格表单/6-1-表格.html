@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+
+    <style>
+        table{
+            border: 1px solid #ff0000;
+            border-collapse: collapse;
+            /* 下面让表格居中 */
+            margin: 0 auto;
+            /* 给个宽度 自动分配到各个单元格 */
+            width: 500px;
+            /* 通过字体来设置高度 */
+            font: 20px/50px "微软雅黑";
+
+
+        }
+        th,td{
+            border: 1px solid #ff0000;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    
+
+
+
+    <!-- 表格是用什么标签
+        table  表格
+        thead  表格头
+        tbody  表格主题
+        tr      表格行
+        th      表格头里面的单元格
+        td      表格主题里面的单元格
+        tfoot   表格底部
+    
+    -->
+
+    <!-- 表格有自身的默认样式
+        重置默认样式 
+        table{border-cpllapse：collapse} 用来清楚单元格之间的空隙和
+        th td{padding=0}
+
+
+        rowspan   合并行（上下合并）
+                
+        colspan  合并列
+    -->
+
+    <table>
+        <thead>
+            <tr>
+                <th >星期一</th>
+                <th>星期二</th>
+                <th>星期三</th>
+                <th>星期四</th>
+                <th>星期五</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td rowspan="5">yuwen</td>
+                <td>yuwen</td>
+                <td>yuwen</td>
+                <td>yuwen</td>
+                <td>yuwen</td>
+            </tr>
+            <tr>
+                <td>yuwen</td>
+                <td>yuwen</td>
+                <td>yuwen</td>
+                <td>yuwen</td>
+                <td>yuwen</td>
+            </tr>
+            <tr>
+                <td>yuwen</td>
+                <td>yuwen</td>
+                <td>yuwen</td>
+                <td>yuwen</td>
+                <td>yuwen</td>
+            </tr>
+            <tr>
+                <td>yuwen</td>
+                <td>yuwen</td>
+                <td>yuwen</td>
+                <td>yuwen</td>
+                <td>yuwen</td>
+            </tr>
+            <tr>
+                <td>yuwen</td>
+                <td>yuwen</td>
+                <td>yuwen</td>
+                <td>yuwen</td>
+                <td>yuwen</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

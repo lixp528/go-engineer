@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <style>
+        div{
+            border: 1px solid #f00;
+        }
+    </style>
+</head>
+<body>
+    <!-- 表单 -->
+    <!-- 所有的input  只有放在form标签里面才能在提交的时候带上 -->
+    <form action="https://www.baidu.com" >
+        <p>
+            <input type="text" name="username" value="">用户名
+        </p>
+
+
+        <p>
+            <input type="password" name="passwd" >密码
+        </p>
+        
+        
+        <p>
+            <input type="radio" name="sex" value="men">男
+            <input type="radio" name="sex" value="women">女
+        </p>
+
+        <p>
+            <input type="checkbox" name="interest" value="eating">吃饭
+            <input type="checkbox" name="interest" value="sleeping">睡觉
+            <input type="checkbox" name="interest" value="playing">玩
+            <input type="checkbox" name="interest" value="gaming">打游戏
+        </p>
+
+        <p>
+            <input type="submit" value="提交">
+            <!-- https://www.baidu.com/?username=123123&passwd=sdfsdf&sex=women&interest=sleeping&interest=playing
+                提交后跳转到action里面的网址  并且会带上上面的附属内容
+            -->
+        </p>
+
+        <p>
+            <input type="reset" value="重置">
+
+        </p>
+        
+        
+        <p>
+            <input type="button" value="自定义按钮">
+            <!-- 除了提交重置以外 需要点击按钮来完成的事件 -->
+        </p>
+
+        <p>
+            <input type="image" src="img/1.png">
+        </p>
+
+        <p>
+            <input type="file" name="inage">
+            <!-- 上传控件 -->
+            <!-- 太丑了 用的少  js里面的ajax -->
+        </p>
+
+        <p>
+            <input type="hidden">
+            <!-- 用于用户不需要知道的东西 -->
+        </p>
+
+
+
+        <p>手机号：<input type="number" name="phone"></p>
+        <!-- 应该是html5的新内容  输入框右边有选项 -->
+    </form>
+
+    <div></div>
+</body>
+</html>

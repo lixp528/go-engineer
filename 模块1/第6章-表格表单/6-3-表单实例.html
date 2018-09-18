@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+            div{
+                border: 1px solid #f00;
+            }
+        </style>
+</head>
+<body>
+    
+
+
+    <form action="http://www.baidu.com/s">
+
+        <p>
+                <input type="text" name="wd" value="">输入搜索内容
+        </p>
+        <input type="submit" value="提交">
+    </form>
+
+    <!-- 跳转百度搜索  注意action的地址是现在百度搜索里面搜索 然后仔细分析地址得到的 -->
+
+    <div></div>
+
+
+
+    <form action="">
+            <!-- label的作用  提升用户体验  直接点击label所在就可以输入 -->
+
+            <!-- id  不能代替name的作用 -->
+
+        <p>
+            <label for="username">用户名:</label>
+            <input type="text" id="username" name="username">
+        </p>
+
+        <p>
+            <label for="passwd">密码：</label>
+            <input type="passwd" id="passwd" name="passwd">
+        </p>
+        <p>
+            <label for="phone">手机号：</label>
+            <input type="text" id="phone"  name="phone">
+        </p>
+
+    </form>
+
+
+    <div></div>
+
+    <!-- checked  可以让输入框 默认选中 -->
+    <form action="">
+        <p>
+            男：<input type="rado" name="sex" value="men">
+            女：<input type="rado" name="sex" value="women">
+        </p>
+        <p>
+            吃饭：<input type="checkbox" name="interest" value="eat" checked>
+            吃饭：<input type="checkbox" name="interest" value="eat2">
+            吃饭：<input type="checkbox" name="interest" value="eat3">
+            吃饭：<input type="checkbox" name="interest" value="eat4">
+        </p>
+    </form>
+
+    <div></div>
+
+    <!-- disabled
+        用来让用户名处于不可输入的状态
+        readonly 只读状态  会被提交
+    -->
+    <form action="">
+            <!-- label的作用  提升用户体验  直接点击label所在就可以输入 -->
+
+            <!-- id  不能代替name的作用 -->
+
+        <p>
+            <label for="username">用户名:</label>
+            <input type="text" id="username" name="username" disabled>
+        </p>
+
+        <p>
+            <label for="passwd">密码：</label>
+            <input type="passwd" id="passwd" name="passwd">
+        </p>
+        <p>
+            <label for="phone">手机号：</label>
+            <input type="text" id="phone"  name="phone">
+        </p>
+    </form>
+
+
+    <div></div>
+
+
+
+    <form action="">
+
+        <select name="area" id="">
+                <option value="beijing">北京</option>
+                <option value="shanghai">上海</option>
+            
+        </select>
+
+        <input type="submit" value="提交">    
+    
+
+        <textarea name="text" id="" cols="30" rows="10"></textarea>
+    </form>
+
+    <div></div>
+    <!-- 表单的默认样式
+        form{
+            margin： 0;  IE6 下面会有一个margin
+        }
+        input{
+            margin 0
+            padding 0 
+            outline none
+        }
+        textarea{
+            margin 0
+             padding 0
+             resize none
+             overflow auto
+             outline none
+        }
+    
+
+    -->
+
+</body>
+</html>

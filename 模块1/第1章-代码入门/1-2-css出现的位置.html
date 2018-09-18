@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>css place</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    
+    <!--内部样式表需要选择器  这里div是指所有div标签 群组选择器-->
+    <style>                  
+        div{width:200px;
+            height: 200px;
+            background: blue;
+        }                
+    </style>
+</head>
+<body>
+    <!--
+        cssc出现的位置，行间，内部，外部
+        
+        行间的写法 给单独的标签添加样式
+        缺点：不利于批量操作
+        优点：唯一
+        <div style="width:100px;height:200px;"></div>
+
+        内部样式表: 样式卸载一对标签对<style></stype>当中
+            具体看本页面head里面的示例
+            只能用于本页面
+
+        外部样式表： 样式写在一个单独的文件里，用的时候引进来就可以了
+            具体参考本页面底部
+            把外部的样式表引入本页面 需要link标签 写法如下
+             <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    -->
+</body>
+</html>
+
+<!--下面的内容为单独的一个style样式表文件-->
+div{width:200px;
+    height: 200px;
+    background: blue;
+}

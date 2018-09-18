@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <style>
+        .parent{
+            width: 200px;
+            height: 200px;
+            border: 10px solid #f00;
+            /* overflow: visible; */
+            overflow: auto;
+        }
+        .parent div{
+            width: 300px;
+            height: 300px;
+            background: yellow;
+        }
+    </style>
+
+
+
+</head>
+<body>
+    
+
+    <!-- 当子级元素超出父级元素的时候怎么显示呢
+        在父级添加overflow
+        overflow 针对超出父级的内容如何显示
+            visible 默认值 超出会显示出来
+            auto  超出给一个滚动条
+            hidden  超出的内容隐藏掉
+            scroll 不管超没超出 都添加滚动条
+        -->
+
+
+    <!-- BFC是什么呢
+        block formating context 块级元素格式化上下文
+        它决定了块级元素如何对它的内容进行布局，以及与其他元素的关系和相互作用
+
+
+        块级元素：父级（是一个块元素）
+        内容：子级  也是一个块元素
+        其他元素：与内容同级别的兄弟元素  也就是说都属于一个父级元素
+        相互作用： BFC里面的元素不会和外面你的元素发生影响
+    -->
+
+        <!-- BFC的布局规则和触发条件
+            
+            正常文档流的布局规则
+                    1 浮动的元素是不会被父级计算高度
+                    2 非浮动元素会占用浮动元素的位置
+                    3 margin会传递给父级
+                    4 两个相邻的元素margin会重叠
+            BFC的布局规则
+                     1 浮动的元素会被父级计算高度(父级触发了bfc)
+                     2 非浮动元素不会覆盖浮动元素的位置（非浮动元素除服了bfc）
+                     3 margin不会传递给父级（父级触发bfc）
+                     4 margin重叠可以通过嵌套bfc解决（把兄弟元素修改为父级相邻，也就是说给一个元素添加一个父级 通过这个父级触发bfc）
+
+                
+            触发条件：
+                    在父级元素里面添加以下条件：
+                        float的值不为none
+                        overflow:hidden  只要overflow的值不为 visible
+                        display的值为 table-sell  table-caption inline-block 之一
+                        position的值不是static或者releative
+                -->
+
+
+
+    <div class="parent">
+        <div></div>
+
+    </div>
+
+
+
+</body>
+</html>

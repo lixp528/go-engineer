@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            border: 2px solid #ff0000;
+            position: relative;
+            overflow:hidden;  
+            /* 注意overflow的作用 */
+        }
+        span{
+            position: absolute;
+            left: 0;
+            bottom: 0; 
+            background: #000000;
+            color: #ffffff;            /*字体颜色*/
+            width: 100%;               /*设置宽度*/
+            text-align: center;          /*文字对齐*/
+            font:16px/40px "微软雅黑";  /*设置字体*/
+            opacity: 0.5;              /*设置透明度*/
+        }
+    </style>
+</head>
+<body>
+    <!-- 半透明的效果怎么做
+        1 定位肯定是需要
+        2 透明度的设置
+
+            通过下面的css语法可以设置半透明  达到类似于淘宝图片下面的名称效果
+        position: absolute;
+        left: 0;
+        bottom: 0; 
+        background: #000000;              /*如果是css3  那就不需要opacity  直接background： rgba（0，0,0,0.5）最后一个就是透明度*/
+        color: #ffffff;            /*字体颜色*/
+        width: 100%;               /*设置宽度*/
+        text-align: center;          /*文字对齐*/
+        font:16px/40px "微软雅黑";  /*设置字体*/
+        opacity: 0.5;              /*设置透明度*/
+    -->
+
+
+
+    <div>
+        <img src="img/1.png" alt="">
+        <span>这是个美女</span>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            background: red;
+        }
+        #div1{
+            float: left；
+        }
+        #div2{
+            clear: both;
+        }
+    </style>
+
+
+
+</head>
+<body>
+            <!--首先看一个style命令
+                clear：left
+                值范围 left right both
+                代表在这个元素的左边不能有浮动的元素
+            -->
+
+    <div id="div1">div1的内容</div>
+    <div id="div2"">div2的内容</div>
+    
+
+
+    <!-- 清楚浮动的方法
+        1 clear
+        2 给父级添加高度 子级多高 父级就加多高 这样看起来就没有浮动
+                很多时候不能给父级添加高度
+        3 给父级来一个 inline-block
+                但其实也没有消除浮动  此时想居中的话 也是居中不了的
+
+        4 使用 overflow：hidden
+            如果子级有定位的话 并且 子级的定位 超出了父级的范围 那样就看不到了  所以不能加这个命令
+
+
+        5 空标签
+            在和这个子级所在的父级元素里面 和子级同级 添加一个空标签 并且加上行间样式 style=”clear：both“
+    
+        
+        6 br清除浮动
+            在浮动的元素下面添加一个br  《br clear=“all”》
+        
+        7   after 伪类清除浮动
+            现在最主流的基本无副作用的方法
+                after 代表选择到的元素的内容的最后面 
+                content需要和after配合
+            
+                .class:after{
+                    content:"这是伪类生成的内容"；
+                }
+
+                可以写一个专门的伪类 需要清楚浮动时候就写上类 例如
+                    .clearfloat:after{
+                        content:'';
+                        display:block;
+                        clear:both;
+                    }
+                在父级里面加上这个类就可以了
+            -->
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        a{
+
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        a 超链接标签
+        特点
+            1 默认有一个下划线 想去掉的话 样式里面 text-decoration： none
+            2 不会继承父级的颜色样式
+            3 target 属性确定在哪里打开新页面 如果a标签很多 都想在新页面打开 在head里面可以统一写一个base <base target="_blank" href="统一的跳转网址"/>  
+        功能
+            1 跳转页面
+                href =前往的地址（没地址的情况下可以写一个#）
+                链接到本地 同级 下级目录/ 上级目录..
+
+
+            2 锚点
+                在本页面中跳转 用于页面内容较多，上下的跳转
+                如何写
+                    在href里面写上#name name对应id的值
+
+            3 下载
+                在href 里面写上文件的地址就可以
+                h5 新增的一个属性 download 可以直接下载 <a href="" download=""></a> 这样就会下载所有的文件
+                注意：如果下载的文件 浏览器可以读出来 就会直接打开  不能读出来就会下载
+
+
+            4 a标签的颜色
+                a标签是有状态的
+                    伪类 是针对元素的某种状态添加的不同样式（用：什么什么来表示）
+                        :link 未访问链接的状态
+                        :visited  访问过的链接的状态
+                        ：hover 鼠标悬停的状态
+                        :activate 鼠标点击的时候的状态
+                如何使用伪类
+                    <style>
+                        a:link{
+                            
+                        }
+                    </style>
+        -->
+    <a href="http://www.google.com.hk">google一下</a>
+    <a href="http://www.google.com.hk" target="_blank">google一下2</a>
+    <a href="http://www.google.com.hk" target="_self">google一下3</a>
+
+    <a href="http://www.google.com.hk" target="_self">google一下4</a>
+
+
+</body>
+</html>

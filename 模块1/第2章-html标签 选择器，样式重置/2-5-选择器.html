@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #idselector{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 选择器的类型 选择器是选择一个元素（标签）的方法 
+        id选择器
+            id在每个页面中必须是唯一的
+        标签选择器
+            通过标签名来选择元素 选择到的是一组元素
+        类选择器
+            类选择通过class来选择 不用管标签是否相同
+            一个元素可以有多个class 样式重叠的话 后面覆盖前面
+            id选择器是# 类选择器是.
+        群组选择器
+            通过逗号的方式选择元素
+        包含选择器
+            通过范围选择元素 选择到的可能是一个元素或者多个元素
+            父级和目标元素可以是之前的任意一种选择器
+        通配符选择器
+            *就是通配符 获得所有原色
+            如果不想获得body和head
+            使用 body * 
+            不建议使用
+    -->
+
+
+
+    <!-- id选择器 -->
+    <div id="idselector">id选择器 通过id选择，只能选择一个元素</div>
+
+    <!-- 标签选择器 -->
+    <div>标签选择是选择所有的这个标签 比如所有的div</div>
+
+    <!-- 类选择器 -->
+    <div class="classselector  div22">这是一个div  写了class为classselector和div22</div>
+    <p class="classselector div33">这是一个p标签  写了class为classselector和div33使用的时候是.class</p>
+
+    <!-- 群组选择器 -->
+    <div>这里使用群组选择器，群组通过逗号选择元素</div>
+    <p>群组的逗号这样使用</p>
+    <section>标签名，标签名</section>
+    <p>也可以这样#id1，#id2，p，section，.class1，.class2</p>
+
+
+    <!-- 包含选择器 -->
+    <div class="class1">
+        <div id="id1">
+                div div 或者 .class1 #id1  中间加空格
+        </div>
+    </div>
+
+    <!-- 通配符选择器 -->
+    <div>这是div</div>
+    <p>这是p</p>
+    <h1>这是h1</h1>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 选择器的优先级
+        优先级相同的选择器  靠后的起作用
+        优先级不一致，优先级高的起作用
+
+        行间样式 优先级最高
+        id选择器 
+        class选择器
+        标签选择器
+        通配符
+    -->
+
+
+    <!-- 包含选择的优先级
+        包含选择的优先级是累加的关系
+            行间样式 1000
+            id选择器 100
+            类选择器 10
+            标签选择器 1
+
+    -->
+
+
+    <!-- 群组选择器
+        靠后的优先级高
+    -->
+</body>
+</html>

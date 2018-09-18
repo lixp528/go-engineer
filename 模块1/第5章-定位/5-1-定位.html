@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            color: palevioletred;
+        }
+        .div1{
+            background: red;
+        }
+        .div2{
+            background: yellow;
+        }
+        .div3{
+            background: blue;
+        }
+    </style>
+
+</head>
+<body>
+<!-- 快捷创建多个div的方法
+    div.div${div$}*3 自动填充以后就成了下面的内容
+    <div class="div1">div1</div>
+    <div class="div2">div2</div>
+    <div class="div3">div3</div>
+-->
+
+
+    <!-- position 定位
+                relative 相对定位
+                在有positon这个属性以后  可以添加下面的属性
+                    left：200px；
+                    top：200px；
+                    left right  top、bottom 这两对 每对只能选择一个
+                    特点：
+                            位置计算是根据原来的位置计算 
+                            只添加相对定位 不设置元素移动的位置，元素和之前没有变换
+                            不脱离文档流 定位后原来的位置保留
+                            加上相对定位后对原来的元素本身的特征没有影响
+                            提升层级
+
+
+
+                absolute 绝对定位
+                在有position后可以添加以下属性
+                left 200px；
+                top：200px；
+                特点：
+                            完全脱离文档流
+                            行内元素支持所有样式（与加上浮动 或者inline-block效果相同）
+                            如果父级有定位 name位置会根据父级移动 如果父级没有 则根据可视区来移动（一般情况下用到绝对定位的时候 都会给父级元素来个相对定位）
+                            提升层级
+                            触发BFC 
+
+                fixed  固定定位            固定定位可以用来做上下轮滚动的时候不跟着移动的选项
+                在添加positon后可以添加 一下属性
+                left：100px；
+                top：200px；
+                特点：
+                            完全脱离文档流
+                            行内元素支持所有样式（与加上浮动 或者inline-block效果相同）
+                            根据可视区来移动（不管父级）
+                            提升层级
+                            触发BFC
+                        注意：ie6不支持
+
+
+                static 默认值 不定位
+                            
+    -->
+
+    <!--如何让元素充满父级元素
+            width：100%；
+            height：100%；
+            margin：0px；
+    -->
+
+
+    <div class="div1">div1</div>
+    <div class="div2">div2</div>
+    <div class="div3">div3</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 浮动
+        除了inline-block 还可以通过浮动使得元素在同一行中显示
+        
+        
+        浮动 float
+        定义 
+            使元素脱离文档流 按照指定的方向发生移动 遇到父级的边界或者相邻的浮动元素就会停下来
+        值 
+            left right none
+        特征
+            1 块元素可以在一行内显示
+            2 按照指定的方向移动 遇到父级边界或者相邻的浮动元素停下来
+            2 行内元素支持宽高
+            3脱离文档流
+                浮动后的元素（没有浮动）的位置是从前面浮动的元素的位置开始的
+
+            4 块元素添加浮动后 块元素的默认宽度不再是一行 而是有内容撑开
+            5 父级高度塌陷 破坏性 
+                子元素浮动后，父级元素的高度不会自动撑开了
+            6 换行不会被解析成空格
+                浮动后的元素就会脱离文档流了 那么他就不属于文档流里面的结构了
+            -->
+
+    <div class="parent">
+
+        <div class="son">son</div>
+        <!-- 如果son 浮动 那么parent 会的高度会塌陷 -->
+    </div>
+    
+</body>
+</html>

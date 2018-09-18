@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: red;
+            margin: 200px;
+        }
+
+        #content1{
+            background: blue;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!--
+        margin 外边距
+            10px    10px    10px    10px
+            auto 自动计算
+            margin-top
+            margin-right
+            margin-button
+            margin-left
+        居中显示
+            margin：0 auto
+        
+            margin的问题：
+                1 margin传递的问题 只有上下的y轴上会传递 左右不会
+                    子级元素的margin会传递给父级
+                    解决方法：  给父级加一个边框（方法之一）
+                2 margin  上下的叠压问题
+                    只有上下的y轴会叠压 左右不会 上边的元素的margin-button和下边元素的margin-top叠加 取较大值
+                    解决方法：只给一个元素设置margin
+
+        什么时候用padding  什么时候用margin
+            父子用padding
+            同级用margin
+    -->
+    <div id="content1">xx</div>
+    <div id="content2">zz</div>
+</body>
+</html>

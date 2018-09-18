@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        span,div{
+            width:100px;
+            height: 100px;
+            background: red;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- 如何让一个元素同时拥有块元素和行内元素的特征 
+        display:inline-block
+            特征：
+                1 行内元素支持设置宽高
+                2 块元素在行内显示
+                3 不给宽度 则由内容撑开
+                4 代码换行会被解析成一个空格
+                5 问题：
+                        ie6.7不支持这个块元素的inline-block
+                            在ie67内不认识inline-block 在行内元素添加这个属性后，会触发ie的haslayout让行内元素有与inline-block一样的特征  但是不支持块元素的inline-block
+    -->
+
+    <span>
+        span1
+    </span>
+    <div>
+        div1
+    </div>
+</body>
+</html>
