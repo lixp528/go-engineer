@@ -15,6 +15,12 @@
         alert('警告')
     }
     // 注意记忆script得到元素的方法
+    // 这里的这个script是不会起到作用的 测试方法 把行间js去掉后 功能消失
+    // 改正方法 放在head里面
+    // 原因： 在head里面的脚本先于页面执行  如果一定要放在head里面 
+    // window.onload=function(){你的js代码}
+
+
     </script>
 </head>
 <body>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: #f00;
+            border: 3px solid #0f0;
+            margin: 0 auto;
+        }
+        #input{
+            width: 100%;
+            text-align: center;
+        }
+        /* 设置行级元素居中的方法 */
+        #btn{
+            font: 20px/30px "微软雅黑";
+            border: 2px solid palevioletred;
+            padding: 0;
+            text-align: center;
+            
+            
+        }
+    </style>
+</head>
+<body>
+    <!-- 需求1
+        1 点击按钮 让按钮的背景色变为黄色
+        步骤： 1拿到按钮 document。getElementById
+                2 给按钮添加点击事件 按钮.onclick=function（）{把点击后的事情放在这}
+                3 修改元素的背景色  元素.style.样式=值
+    -->
+
+    <!-- 需求2
+        2. 点击页面中的按钮，改变div的宽度与高度
+    -->
+    <div id="input">
+            <input type="button" name="btn" id="btn" value="按钮">
+    </div>
+
+    <div id="box"> </div>
+
+
+    <script>
+            document.getElementById('btn').onclick=function(){
+                document.getElementById('btn').style.background='yellow';
+                document.getElementById('box').style.width='400px';
+                document.getElementById('box').style.height='400px';
+            };
+        </script>
+</body>
+</html>
