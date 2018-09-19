@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <style>
+        #btn{
+            width: 50px;
+            height: 50px;
+            background: rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 
+        自定义属性
+        综合实例： 个性选框
+            给每一个元素添加开关
+
+        自定义属性：
+            元素本身的属性 id className value  innerHTML 等等 都是系统给的
+            子集给元素添加属性
+                系统自带属性满足不了需求的时候 自己添加
+        
+        
+        综合实例---选项卡
+            保存索引值
+            思路1： 清楚所有的 设置当前的
+            思路2 ： 清楚上一个 设置当前的
+        
+     -->
+     
+
+     <input type="button" id="btn" value="按钮1">
+
+     <script>
+        //  下面展示如何自定义属性
+        var btn=document.querySelector('#btn');
+        btn.function="这是自定义的属性";
+        console.log(btn.type);
+        console.log(btn.function);
+     </script>
+</body>
+</html>

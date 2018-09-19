@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <!--    
+        综合实例---选项卡
+
+        需求：
+            点击按钮显示对应的div，让其他的按钮背景色去掉，让其他的div隐藏
+        关键：
+            如何知道上一个input
+        分析：
+
+
+
+        保存索引值
+        思路1： 清楚所有的 设置当前的   这种思路简单
+        思路2 ： 清楚上一个 设置当前的  这种思路复杂 下面实现的是这种
+        
+     -->
+     
+
+    <input type="button" id="" value="按钮1"> 
+    <input type="button" id="" value="按钮2">
+    <input type="button" id="" value="按钮3">
+
+    <div>内容一</div>
+    <div>内容二</div>
+    <div>内容三</div>
+
+     <script>
+        // 首先获取所有的input和div
+        var inputs=document.querySelectorAll('input');
+        var divs=document.querySelectorAll('div');
+        console.dir(inputs);
+        console.dir(divs);
+
+        // 我要记录上一次的显示的对象
+        var last=inputs[0];
+        // 给每一个按钮添加点击事件 
+        for(var i=0;i<inputs.length;i++){
+            //给每一个按钮添加一个自定义属性，得到当前的索引
+            inputs[i].index=i;
+            //清空上一个的背景色
+            // last.style.background='';
+            inputs[i].onclick=function(){
+                // 上一个div显示为none
+                divs[last.index].style.display='none';
+                // 这个input添加背景
+                this.style.background='yellow';
+                // 上一个input背景色去掉
+                inputs[last.index].style.background='';
+                // last.style.background='';
+                // 这个div显示为block
+                divs[this.index].style.display='block';
+                last=this;
+            }
+        }
+     </script>
+</body>
+</html>
