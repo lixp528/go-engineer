@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <!-- 
+        获取一个元素
+        getElementById
+
+
+        获取一组元素
+                getElementByTagName(标签名称)
+                    通过html标签获取一组元素
+                    有两个主语（限制范围）
+                        document 整个文档
+                        父级    从父级下面去获取
+
+
+                    例子 
+                        document.getElementByTagName(li)  主语是document 也就是说从整个文档获取  得到一个集合 是一个类数组，只有数组的length和下标的属性 没有其他的方法
+                        如果想从某一个父级下面获取指定标签
+                            要先document.getElementById(父级id)
+
+
+
+                getElementByClassName
+                    通过class名获取一组元素
+                    有两个主语（限制范围）
+                        document 整个文档
+                        父级    从父级下面去获取
+                    获取的结果
+                        也是一个类数组 使用方法和上面基本一样
+
+
+
+            熟练掌握下面这两种 功能更加强大 需要自己学习css3的选择器
+                上面的两种方法 和下面的两种方法 在于上面是动态的 下面是静态的 
+                需要记住
+
+
+                querySelector(css选择器)
+                    通过css选择器获取一个元素
+                        它获取到的只有一个元素 有多个符合条件的 只选择一个
+                    有两个主语（限制范围）
+                        document 整个文档
+                        父级    从父级下面去获取
+                    举例：
+                        下面这两个是css3的选择器
+                            #color>li:first-child{}
+                            #color>li:nth-child{}
+                        querySelector的使用方法
+                            1.      
+                                var  firstli=document.querySelector('#color li:first-child');
+                                first.background='red';
+                            2.
+                                var ul=document.querySelector('.color');
+                                ul.style.background='yellow';
+
+
+                querySelectorAll(css选择器)
+                    通过css选择器获取一组元素
+                    有两个主语（限制范围）
+                        document 整个文档
+                        父级    从父级下面去获取
+                    举例：
+                        lis=document.querySelectorAll('li');  得到的结果是一个类数组
+                        lis2=color2.querySelectorAll('li')    注意逻辑
+
+
+     -->
+</body>
+</html>

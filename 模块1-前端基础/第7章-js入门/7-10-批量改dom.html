@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 目标  批量修改dom元素样式
+        
+        需求：改变所有li的背景色
+    -->
+
+    <ul id="colors">
+        <li>black</li>
+        <li>green</li>
+        <li>grey</li>
+        <li>blue</li>
+        <li>red</li>
+        <li>yellow</li>
+    </ul>
+
+    <script>
+        var ul=document.querySelector('#colors');
+        var lis=ul.querySelectorAll('li');
+        for(i=0;i<(lis.length);i++){
+            lis[i].style.background=lis[i].innerHTML;
+        }
+    </script>
+</body>
+</html>

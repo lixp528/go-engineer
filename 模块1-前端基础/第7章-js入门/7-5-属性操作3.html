@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .divconfig{
+            text-align: center;
+            margin: 0 auto;
+            width: 100%;
+
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background: fuchsia;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        需求：
+        点击按钮获取输入框中的属性名称和属性值 对div设置
+
+        思路
+        1 给按钮添加点击事件
+        2 获取输入框中的内容
+        3 改变div的样式
+        知识点：
+        1 属性操作
+        2 字符串拼接
+     -->
+
+     <p class="divconfig">div颜色<input type="text" id="text1" value=""></p>
+     <p class="divconfig">div宽度<input type="text" id="text2" value=""></p>
+     <p class="divconfig"><input type="button" name="btn" id="btn" value="提交"></p>
+     <div id="box"></div>
+
+
+     <script>
+         window.onload=function(){
+             var text1=document.getElementById('text1');
+             var text2=document.getElementById('text2');
+             var btn=document.getElementById('btn');
+             var box=document.getElementById('box');
+             btn.onclick=function(){
+                 var boxColor=text1.value;
+                 var boxWidth=text2.value;
+                //  点操作属性 后面只能跟真正的属性名称  
+                // 不能跟变量名
+                // 【】可以，属性名 加引号 变量名不需要
+
+                 box.style['background']=boxColor;
+                 box.style['width']=boxWidth;
+             }
+         }
+     </script>
+</body>
+</html>

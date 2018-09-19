@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        p{
+        div{
             width: 100%;
             text-align: center;
             margin: 0 auto;
@@ -15,51 +15,49 @@
 </head>
 <body>
 
-    <script>
-    /*
-        属性操作方式（针对html标签的属性）
-        1、 .   例如div.width
-        2、 [] 
-    */
-    </script>
-
-    <script>
-        /*
-            注意：
-            如果要获取 btn.style.font-size
-            js是不认识-的  所以获取不到 font-size
-            这个时候是不能使用.来获取  也就是说 btn.style.font-size会报错
-            这个时候需要使用btn.style['font-size']
-
-            非要使用.操作符也是可以的 需要按照这样操作 -去掉 -后面的第一个字母大写
-            btn.style.fontSize
-
-        */
-    </script>
-
-
     <!-- 例子 value -->
-    <p id="input1">
+    <div id="input1">
         <input type="button" name="btn1" id="btn" value="按钮">
-    </p>
-    <p id="input2">
+    </div>
+    <div id="input2">
         <input type="text" name="text" id="text" value="查看控制台">
-    </p>
+    </div>
     <div class="box1" id="box1">
+        <p>标题</p>这是一段文字
     </div>
 
     <!-- 元素的常用属性 -->
     <script>
     // value的值的使用
+    // classname
+    // innerhtml
+    // herf 
+    // src
+    // display：none  可以让元素不显示
+                //display获取的是行间属性 如果属性是写在style 里面可能会有问题 
     window.onload=function(){
         var btn=document.getElementById('btn');
         var text=document.getElementById('text');
         var box=document.getElementById('box1');
+
         // 使用value
         console.log(btn.value);
         console.log(text.value);
+
         // 使用classname，也就是说标签的class
         console.log(box.className);
+
+        // 使用innerHTML 标签对当中有其他标签 同样可以拿到
+        // 在给innerHtML设置值得实惠，如果值内有标签，name会解析成对应的标签
+    btn.onclick=function(){
+        console.log(box.innerHTML);
+        box.innerHTML='标签内容修改'
+
+        // herf是链接的地址
+        // src是图片的地址
+        // href 和src是绝对地址 我们自己写的时候给的是相对地址
+        // 千万不能拿这地址去做判断和运算之类的内容
+    }
     };
     </script>
 </body>
