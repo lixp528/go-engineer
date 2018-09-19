@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        需求：把被点击的li的背景颜色修改为红色
+     -->
+        <ul id="colors">
+                <li>black</li>
+                <li>green</li>
+                <li>grey</li>
+                <li>blue</li>
+                <li>red</li>
+                <li>yellow</li>
+            </ul>
+        
+            <script>
+                // 这里有逻辑错误 我们想要的是点击到哪个 就哪个变色
+                //循环的速度是很快的 我们点击的时候 循环执行完了 i的值不对
+                //click的代码 只有在点击的时候才会触发
+
+                window.onload=function(){
+                    var ul=document.querySelector('#colors');
+                    var lis=ul.querySelectorAll('li');
+                    for(i=0;i<lis.length;i++){
+                        lis[i].onclick=function(){
+                            console.log(i);
+                            lis[i].style.background='red';
+                        };
+                    }
+                }
+
+                /*
+                    this 关键字
+                    this指的是当前对象
+                    关键字 不能当做变量名
+                    只能读 不能写 只能用 不能改
+
+
+                    1 在函数外面用  
+                            this 指向window
+                    2 在函数内使用
+                            1 函数被直接调用  this 指向window
+                            2 被事件赋值方式调用 this指向事件的对象
+                */
+                // window.onload=function(){
+                //     var ul=document.querySelector('#colors');
+                //     var lis=ul.querySelectorAll('li');
+                //     console.log(lis);
+                //     for(i=0;i<lis.length;i++){
+                //         lis[i].onclick=function(){
+
+                //             this.style.background='red';
+                //         };
+                //     }
+                // }
+            </script>
+</body>
+</html>
