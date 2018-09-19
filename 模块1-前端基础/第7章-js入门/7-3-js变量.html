@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #secname{
+            font: 20px/35px '微软雅黑';
+            text-align: center;
+            }
+        #input{
+            text-align: center;
+            width: 100%;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: yellowgreen;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <p id="secname">js变量学习</p>
+    <p id="input">
+        <input type="button" name="btn" id="btn" value="按钮">
+    </p>
+    <div id="box"></div>
+
+    <script>
+        // document.getElementById('btn').onclick=function(){
+        //     document.getElementById('box').style.width='200px';
+        //     document.getElementById('btn').style.background='red';
+        // }
+        // 上面是简单的方法 下面是使用变量
+        var box=document.getElementById('box');
+        var btn=document.getElementById('btn');
+        btn.onclick=function(){
+            box.style.background='blue';
+        }
+    </script>
+
+
+    <script>
+    // 变量
+    //      可变的值
+    // 变量的好处
+    //      复用代码 精简代码
+
+
+    // 声明变量的方法：
+    // var 变量名 = 变量值
+    // 调试方法 console.log()
+    var kavin = 12
+    console.log(kavin);
+
+    //变量命名规则，和java相同
+    //允许字母、数字、下划线和$组合
+    //不允许数字开头
+    //不允许使用保留字和关键字
+
+    // 变量的命名风格
+    //语义化
+    //驼峰法命名
+        //大驼峰    首字母就开始大写  表示系统当中的变量或者是类对象的构造函数 （具体以后实践才知道）
+        //小驼峰    从第二个单词开始首字母大写
+    </script>
+</body>
+</html>
