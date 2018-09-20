@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        /*
+            闭包：
+            下面先看一个例子
+        */
+        function fn1(){
+            var n=10;
+            function fn2(){
+                n++;
+                console.log(n);
+            }
+            fn2();
+        }
+        fn1();  //输出11
+        fn1();  //输出11
+        
+        // 这种方法没有返回的是一个值 或者没有返回值  所以会垃圾回收  函数销毁了
+        //看下面的方法
+        var innerFn=null;
+        function fn1(){
+            var n=10;
+            function fn2(){
+                n++;
+                console.log(n);
+            }
+            fn2();
+            innerFn=fn2;
+        }
+        fn1();  //输出11
+        fn1();  //输出11
+        innerFn(); //输出12
+        innerFn();  //输出13
+        innerFn();  //输出14
+        fn1();  //输出11
+
+
+        // 另外一种方法：  这种更好一些
+        function fn1(){
+            var n=10;
+            function fn2(){
+                n++;
+                console.log(n);
+            }
+            return fn2;
+        }
+        var Fnvalue=fn1();
+        Fnvalue()
+
+
+
+    /*
+        深入了解首先需要理解下面两个概念
+        垃圾回收机制
+            上面的例子中两个fn1输出结果相同 的原因：垃圾回收  每次调用是重新声明了一个n
+        
+        
+        生命周期
+            变量或者函数在相应的作用域里存在的时间
+            局部变量： 不再使用 就是申明周期的结束
+                        局部变量在函数内声明，函数结束 变量就不存在了
+            全局变量：
+                    声明完成以后 整个页面都可以用，页面关闭的时候销毁
+    */
+    </script>
+</body>
+</html>

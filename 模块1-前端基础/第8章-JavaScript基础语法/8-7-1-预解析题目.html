@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        var c=10;
+        function fn1(){
+            console.log(c);
+            c=20;
+        }
+        fn1();
+        console.log(c);
+        /*
+            预测输出结果：
+                20 
+                20
+                错误 是：
+                    10
+                    20
+                说明： function 里面的c=20没有被预解析  没有预解析的原因： 没有用var声明
+        */
+
+        var d=12;
+        function fn2(d){
+            console.log(d);
+            d=24;
+        }
+        fn2();
+        console.log(d)
+        /*
+            预测输出结果：
+            报错
+            错误： 不报错：
+                undefined
+                 12
+                说明： 函数在预解析的时候 给undefined 实参传过来 会改为实参的值
+                        函数内部有d  所以就没有修改外面的d  最后调用的时候 外面有d=12  
+        */
+
+        var e=13;
+        function fn3(e){
+            console.log(e);
+            e=54;
+        }
+        fn3(e);
+        console.log(e);
+        /*
+            预测输出结果：
+                13
+                13
+                正确
+        */
+
+
+
+        /*
+            函数的预解析
+            对比下面的这两种情况
+        */
+        fn1();
+        function fn1(){
+            console.log('fn1');
+        }
+        fn1;
+        // 这种情况  前后都可以正常调用
+        fn2();
+        function fn2(){
+            console.log('fn2');
+        }
+        fn2();
+        // 这种情况只能在后面调用正常
+    </script>
+</body>
+</html>

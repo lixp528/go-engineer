@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+    /*
+        预解析：
+            函数或者变量都会有一个提前解析的过程，js会把函数或者变量提前解析一下，解析到他们对应的作用域最开始的地方
+
+            步骤：
+                1 找到var function关键字和参数
+                2 如果找到了var ，会给变脸先赋值undefined 如果找到了function 会把整个函数拿过来
+                3 把找到的东西放到对应的作用域最开始的位置
+                4 逐行执行代码
+
+
+        通过下面的例子说明这个问题：
+
+        console.log(a); //输出undefined
+        var a=2;
+        console.log(a);  //输出20
+        这三句话在函数外和内部都会这样的结果
+    */
+    </script>
+</body>
+</html>

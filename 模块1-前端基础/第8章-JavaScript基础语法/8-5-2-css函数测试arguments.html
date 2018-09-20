@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #box{
+            width: 100px;
+            height: 150px;
+            border: 1px solid #f00;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="box"></div>
+    <script>
+        /*
+            css函数
+            css(box,'width') 两个参数代表获取属性值
+            css(box,'width','400px')三个参数代表设置属性值
+
+        */
+        window.onload=function(){
+            var box=document.getElementById('box');
+            console.dir(getComputedStyle(box));
+            // 这样就获取到了元素所有的css样式
+            function css(){
+                if(arguments.length==2){
+                    //说明是要获取属性值
+                return getComputedStyle(arguments[0])[arguments[1]]; //想想这里为什么用【】 而不是.
+                }
+                if(arguments.length==3){
+                    //说明是要设置属性值
+                    arguments[0].style[arguments[1]]=arguments[2];
+                }
+            }
+            console.log(css(box,'display'));
+        }
+    </script>
+</body>
+</html>

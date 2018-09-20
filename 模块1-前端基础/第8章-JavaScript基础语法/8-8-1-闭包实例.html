@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>red</li>
+        <li>green</li>
+        <li>blue</li>
+        <li>pink</li>
+        <li>black</li>
+        <li>grey</li>
+    </ul>
+
+    <script>
+
+        /*
+            闭包的作用  在循环当中 找到对应的i
+        */
+        window.onload=function(){
+            var colors=document.querySelectorAll('li');
+
+            for(var i=0;i<colors.length;i++){
+
+                /*
+                // 下面利用函数的自执行
+                (function(i){
+                    colors[i].onclick=function(){
+                        console.log(i);
+                    }
+                })(i);
+                // 注意这里有个问题 如果function调用的时候 不传入参数i  那么会一直都是6
+                */ 
+                //另一种方法
+                colors[i].onclick=(function(i){
+                    return function(){
+                        console.log(i);
+                    }
+                })(i)
+
+
+
+            }
+        }
+    </script>
+</body>
+</html>

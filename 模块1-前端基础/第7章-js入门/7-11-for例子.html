@@ -19,46 +19,53 @@
                 <li>yellow</li>
             </ul>
         
-            <script>
-                // 这里有逻辑错误 我们想要的是点击到哪个 就哪个变色
-                //循环的速度是很快的 我们点击的时候 循环执行完了 i的值不对
-                //click的代码 只有在点击的时候才会触发
+        <script>
+            // 这里有逻辑错误 我们想要的是点击到哪个 就哪个变色
+            //循环的速度是很快的 我们点击的时候 循环执行完了 i的值不对
+            //click的代码 只有在点击的时候才会触发
 
-                window.onload=function(){
-                    var ul=document.querySelector('#colors');
-                    var lis=ul.querySelectorAll('li');
-                    for(i=0;i<lis.length;i++){
-                        lis[i].onclick=function(){
-                            console.log(i);
-                            lis[i].style.background='red';
-                        };
-                    }
+        /*
+            window.onload=function(){
+                var ul=document.querySelector('#colors');
+                var lis=ul.querySelectorAll('li');
+                for(i=0;i<lis.length;i++){
+                    lis[i].onclick=function(){
+                        console.log(i);
+                        lis[i].style.background='red';
+                    };
                 }
-
-                /*
-                    this 关键字
-                    this指的是当前对象
-                    关键字 不能当做变量名
-                    只能读 不能写 只能用 不能改
+            }
+        */
 
 
-                    1 在函数外面用  
-                            this 指向window
-                    2 在函数内使用
-                            1 函数被直接调用  this 指向window
-                            2 被事件赋值方式调用 this指向事件的对象
-                */
-                // window.onload=function(){
-                //     var ul=document.querySelector('#colors');
-                //     var lis=ul.querySelectorAll('li');
-                //     console.log(lis);
-                //     for(i=0;i<lis.length;i++){
-                //         lis[i].onclick=function(){
+            /*
+                this 关键字
+                this指的是当前对象
+                关键字 不能当做变量名
+                只能读 不能写 只能用 不能改
 
-                //             this.style.background='red';
-                //         };
-                //     }
-                // }
-            </script>
+
+                1 在函数外面用  
+                        this 指向window
+                2 在函数内使用
+                        1 函数被直接调用  this 指向window
+                        2 被事件赋值方式调用 this指向事件的对象
+            */
+
+            
+            window.onload=function(){
+                var ul=document.querySelector('#colors');
+                var lis=ul.querySelectorAll('li');
+                console.log(lis);
+                for(i=0;i<lis.length;i++){
+                    lis[i].onclick=function(){
+
+                        this.style.background='red';
+                    };
+                }
+            }
+
+            
+        </script>
 </body>
 </html>
