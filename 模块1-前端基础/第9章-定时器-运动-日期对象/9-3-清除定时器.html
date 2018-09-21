@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            清除定时器
+                定时器执行的过程中  下面的代码也会走
+            
+
+            定时器的编号：
+                定时器的返回值，是一个数字，代表当前定时器的编号
+
+
+            清除重复执行定时器：
+                clearInterval(定时器的返回值);
+
+                clearTimeout也可以
+
+                清除定时器的方法 清除的是定时器的编号
+
+
+            清除延迟执行定时器
+                和重复执行定时器是一样的 函数名为：
+                clearTimeout（定时器的值）
+            
+        */
+
+        //下面是清除重复执行定时器    清除延迟定时器是一样的
+        var i=0;
+        function add(){
+            i++;
+            console.log(i);
+
+            // 清除定时器的代码 一般放在定时器执行的函数里
+            if(i==15){
+                clearInterval(Intervalone);
+            }
+        }
+        var Intervalone=setInterval(add,1000);
+        
+
+    </script>
+</body>
+</html>

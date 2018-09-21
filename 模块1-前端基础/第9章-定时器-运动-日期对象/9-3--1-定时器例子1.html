@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: #f00;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="begin" value="开始">
+    <input type="button" id="stop" value="停止">
+    <input type="button" id="reset" value="重置">
+    <div id="box"></div>
+    
+    <script>
+        /*
+            做一个运动的例子
+        简述：两个按钮 按开始 div的样式开始改变
+                    按停止就停止改变
+        */
+        window.onload=function(){
+            var begin=document.querySelector('#begin');
+            var stop=document.querySelector("#stop");
+            var reset=document.querySelector("#reset");
+            var box=document.querySelector("#box");
+            var timer;
+
+
+            var box_width=parseInt(getComputedStyle(box).width); //注意转化为整数
+            var box_height=parseInt(getComputedStyle(box).height);
+            var box_left=parseInt(getComputedStyle(box).left);
+            var box_top=parseInt(getComputedStyle(box).top);
+            function change(){
+                box_height++;
+                box.style.height=box_height+'px';   //注加单位
+                box_width++;
+                box.style.width=box_width+'px';                
+                box_left++;
+                box.style.left=box_left+'px';
+                box_top++;
+                box.style.top=box_top+'px';
+                console.log(box.style.width);
+
+            }
+            begin.onclick=function(){
+                timer=setInterval(change,16);
+            };
+            
+            stop.onclick=function(){
+                clearInterval(timer);
+            }
+            reset.onclick=function(){
+                box.style.height='100px';
+                box.style.width='100px';
+                box.style.left='0';
+                box.style.top='50px';
+
+            }
+        }
+    </script>
+</body>
+</html>

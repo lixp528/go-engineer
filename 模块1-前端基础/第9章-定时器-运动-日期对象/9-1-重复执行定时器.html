@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #f00;
+            font: 30px/50px '微软雅黑';
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="box"></div>
+
+
+    <script>
+        window.onload=function(){
+            var box=document.getElementById('box');
+
+            box.onclick=function(){
+                for(var i=0;i<50;i++){
+                    box.innerHTML=i;
+                }
+            };
+        };
+
+
+        /*
+            上面的循环太快 导致我们只能看到最后一个结果
+            如何每次都看到 
+
+        定时器
+            定时器的分类“
+                1 重复执行的定时器
+                    setInterval()
+                    作用 每个与段时间就去执行指定的函数 重复执行
+                    语法：setInterval（function（）{
+                        重复执行的代码
+                    }，时间）
+                    注意：时间的单位是毫秒  或者另外一种写法 setInterval（函数名。毫秒数）；
+
+
+
+                2 延迟执行的定时器
+                    setTimeout()
+                    作用    当延迟时间到达后，执行指定函数，这个函数只执行一次。、
+                    语法
+                        setTimeout（function（）{
+                            代码
+                        }，时间）
+                        注意 时间是毫秒 只执行一次
+        */
+    </script>
+</body>
+</html>

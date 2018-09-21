@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #ad{
+            background: url("img/1.png") no-repeat fixed top;  
+            /* 问题 div显示不出来 */
+            /*
+                花了很长时间解决 选择器的名字写的是id  实际应该是ad  改过来就对了
+            */
+        }
+    </style>
+</head>
+<body>
+    <div id="ad"></div>
+
+    <script> 
+        /*
+            需求：
+            1 让div的高度从0 变换到250
+            2 到达指定高度停止3秒钟
+            3 让div的高度从250变换到100
+            4 运动完成后清除定时器
+        */
+        window.onload=function(){
+            var ad=document.querySelector("#ad");
+            console.log(ad);
+            var t1;
+            var t2;
+            var t3;
+            var ad_h=parseInt(getComputedStyle(ad).height);
+
+            function cutlength(){
+                ad_h--;
+                ad.style.height=ad_h+'px';
+                if(ad_h==100){
+                    clearInterval(t3);
+                }
+            }
+            function cutlength_timer(){
+                t3=setInterval(cutlength,16);
+                clearTimeout(t2);
+            }
+
+            function addlength(){
+                console.log("addlength");
+                ad_h++;
+                ad.style.height=ad_h+'px';
+                if(ad_h==250){
+                    clearInterval(t1);
+                    t2=setTimeout(cutlength_timer,3000);
+                }
+            }
+
+            t1=setInterval(addlength,16);
+            //下拉的函数
+            
+        };
+    </script> 
+</body>
+</html>
