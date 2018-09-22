@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background: saddlebrown;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+        #box2{
+            width: 200px;
+            height: 200px;
+            background: saddlebrown;
+            position: absolute;
+            left: 0;
+            top:300px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="begin" value="开始">
+    <div id="box1"></div>
+    <div id="box2"></div>
+    
+    <script>
+        /*
+            运动的问题：
+            
+            运动的原理：在定时器里不断的修改元素的属性，修改完成后再把结果重新赋值给元素
+
+            第一个问题：运动步长 和运动的目标 不一致的时候要加上判断条件
+
+
+            第二个问题：如果用户连续点击按钮，会造成速度越来越快 
+            而且如果没有超出范围的限制条件 就会造成运动不停下来  （只需要连续点击两次）
+            原因： 用户会开启多个定时器
+                 解决方法：
+                    在新开一个定时器之前 清楚   
+                    即便是第一次开 清楚一个不存在的定时器 也是不会有问题的
+            运动的问题3：
+                如果多个元素同时运动 会只有最后一个元素运动
+                这是多个元素共用定时器造成的
+                    思路：所以不能把定时器写在循环的函数里 需要设计好循环函数
+                    上面的这个思路不可行 因为定时器不能当做参数来传递给调用运动的函数里面，除非你知道自己需要多少个定时器并在最外部定义好
+                    好的思路是在运动函数里面 使用自定义属性来当定时器  这样各个元素的定时器都不会冲突
+
+        */
+
+        /*
+        //这是只有一个box的情况，
+        window.onload=function(){
+            var begin=document.querySelector("#begin");
+            var box=document.querySelector("#box1");
+            var t;
+            box_left=parseInt(getComputedStyle(box).left);
+            console.log("得到变量");
+
+            function exercise(){
+                box_left+=5;
+                box.style.left=box_left+"px";
+                if (box_left>1000){
+                    clearInterval(t);
+                    //box.style.left=1000+"px";
+                    // 如果没有这句话 连续点击两次的时候就会 出现一直往右走 不会停下来的状况 这是为什么
+                }
+            }
+
+            begin.onclick=function(){
+                console.log("开始运动");
+                clearInterval(t);
+                t=setInterval(exercise,16);
+            };
+
+        }
+        */
+       //两个div一起运动的情况
+       //下面先按照自己的思路写一下
+       window.onload=function(){
+            var begin=document.querySelector("#begin");
+            var box1=document.querySelector("#box1");
+            var box2=document.querySelector("#box2");
+            console.log("得到变量");
+
+           function start_exec(box, attr, attr_max) {
+
+               clearInterval(box.timer); //开始之前先清除
+
+               console.log("开始运动");
+               var attr_value = parseInt(getComputedStyle(box)[attr]); //为什么使用中括号 因为attr是变量 不是真正的属性
+
+               box.timer = setInterval(exercise, 16);//自定义属性来代替定时器
+               function exercise() {
+
+                   attr_value += 5;
+                   box.style.left = attr_value + "px";
+                   if (attr_value > attr_max) {
+                       clearInterval(box.timer);
+                       box.style[left] = attr_max + "px";
+                       // 如果没有这句话 连续点击两次的时候就会 出现一直往右走 不会停下来的状况 这是为什么
+                   }
+               }
+
+           }
+            
+            //begin.onclick=start_exec(box1,"left",300,timer1);
+            //上面是一开始想好的四个参数  然后发现timer1 这个参数传不进去 肯定不能是个string
+            //所以就放弃这个参数 在内部让元素使用自定义属性
+
+            //begin.onclick=start_exec(box2,"left",500);
+            //上面这种写法也错  不用点击就执行了
+            begin.onclick=function(){
+                start_exec(box1,"left",300);
+                start_exec(box2,"left",500);
+            }
+
+        }
+    </script>
+</body>
+</html>

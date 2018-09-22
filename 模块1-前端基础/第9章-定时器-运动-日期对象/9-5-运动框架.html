@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script type="text/javascript" src='move/move.js'></script>
+
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background: #f00;
+            position: absolute;
+            left: 0;
+            top: 150px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="btn" value="开始">
+    <div id="box1"></div>
+
+    <script>
+        //move.js的使用  github上可以找到
+        //首先需要引用  在head里面
+        var box1=document.querySelector("#box1");
+        var btn=document.querySelector("#btn");
+        
+        btn.onclick=function(){
+            move(box1,{left:300,top:400},2000,'lineatr',function(){alert("完成")});
+        };
+        
+
+    </script>
+</body>
+</html>

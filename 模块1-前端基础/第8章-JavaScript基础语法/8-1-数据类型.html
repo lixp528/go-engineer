@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
+
 
     <script>
         /*
@@ -54,7 +56,21 @@
                         language:['日语'，'英语'，'汉语'],
                         'have-money':true
                     }
+
+
+                    function person(firstname,lastname,age,eyecolor){
+                        this.firstname=firstname;
+                        this.lastname=lastname;
+                        this.age=age;
+                        this.eyecolor=eyecolor;
+
+                        this.changeName=changeName;
+                        function changeName(name){
+                            this.lastname=name;
+                        }
+                    }
         */
     </script>
 </body>
+
 </html>
