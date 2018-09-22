@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <style>
+        #clock{
+            width: 200px;
+            height: 120px;
+            margin: 0 auto;
+            padding: 0;
+            text-align: center;
+            font: 20px/20px "微软雅黑";
+            color: rgba(255.0.0.0.9);
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock"></div>
+
+    <script>
+        /*动态时钟*/
+        var clock=document.querySelector("#clock");
+
+        //测试 标准化日期函数
+        function formatweek(v){
+            return ['日','一','二'][v];
+        }
+        console.log(formatweek(0));
+        
+    
+        //时钟函数
+        //这个时钟函数不正确  月份和星期没有做修改 月份应该加1  星期会出现0
+        //月份 星期 时 分 秒 都应该做双位处理 不然可能会导致显示的变换  就是 如果参数小于10  应该加上0
+        function start_clock(box){
+            clearInterval(box.clock);
+            box.clock=setInterval(seond_clock,16);
+            function seond_clock(){
+                now=new Date();
+                box.innerHTML=now.getFullYear()+"年"+now.getMonth()+"月"+now.getDate()+"日"+'<hr>'+now.getHours()+"时"+now.getMinutes()+"分"+now.getSeconds()+"秒"+'<hr>'+"星期"+now.getDay();
+            }
+        }
+        start_clock(clock);
+    </script>
+</body>
+</html>

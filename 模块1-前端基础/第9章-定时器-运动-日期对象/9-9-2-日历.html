@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #date{
+            width: 280px;
+            margin: 50px auto;
+        }
+        li{
+            width: 40px;
+            height: 40px;
+            float: left;
+            /* 下面的list-style用来清楚默认的ul的左边的小圆点 */
+            list-style: none; 
+            text-align: center;
+            font: 20px/20px "华文彩云 常规";
+            color: rgba(163,85,12,0.3);
+            overflow: hidden;
+        }
+        /* 注意 div span  和  div>span的区别 */
+        div span{
+            float: left;
+            width: 40px;
+            height: 30px;
+            text-align: center;
+            font: 20px/30px "微软雅黑"；
+        }
+        div span.active{
+            background: #f00;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="date">
+        <ul>
+            <li>日</li>
+            <li>一</li>
+            <li>二</li>
+            <li>三</li>
+            <li>四</li>
+            <li>五</li>
+            <li>六</li>
+        </ul>
+        <div></div>
+    </div>
+    <!-- 日历
+        做日历之前 需要知道：
+        这个月有多少天
+        这个月1号周几
+    -->
+    <script>
+        //得到输出日期的div
+        var date=document.querySelector("#date div");
+        console.dir(date);
+        
+        
+
+
+        //下面的函数获得本月的天数
+        function getdaynumbers(year,month){
+            return new Date(year,month,0).getDate();
+        }
+
+        //下面的函数获取1号是周几
+        function getfisrtdayweek(year,month){
+            return new Date(year,month-1,1).getDay();
+        }
+        
+        function getweeks(year,month){
+            console.log(year);
+            console.log(month);
+            //得到今天是几号 用来高亮今天用的
+            todaydate=new Date().getDate();
+            console.log(todaydate);
+            console.log(todaydate);
+            //var daystr先在这里声明  原因是操作页面的次数要少 尽量不要再循环里面操作
+            var daystr="";
+            //调用函数得到本月的天数和1号是周几
+            var totaldays=getdaynumbers(year,month);
+            var weekday=getfisrtdayweek(year,month);
+            console.log(totaldays);
+            console.log(weekday);
+            
+
+            //首先根据1号是周几得到需要补几个位置，需要用到对1号是周几分类处理  然后用今天-日期 得到需要输出的那天
+            switch(weekday){
+                    case 0:
+                        break;
+                    default:
+                        var today=new Date();  //今天的这个日期实例也需要用到
+                        today.setDate(today.getDate()-(todaydate+weekday-1));
+                        daystr+='<span>'+today.getDate()+'</span>';
+                        for(var j=0;j<(weekday-1);j++){
+                            //上个月应该出现在表上的第一天
+                            today.setDate(today.getDate()+1);
+                            daystr+='<span>'+today.getDate()+'</span>';
+                        }
+                }
+            
+
+
+
+            //上面得到这个月必要的两个消息 下面循环输出日期
+            for(var i=1;i<=totaldays;i++){
+                if((i)==todaydate){
+                    daystr+="<span class='active'>"+i+"</span>";
+                }else{
+                    daystr+="<span >"+i+"</span>";
+                }
+            }
+            date.innerHTML+=daystr;
+
+
+            //输出下个月的日期
+        }
+        getweeks(2018,9);
+
+        
+    </script>
+</body>
+</html>

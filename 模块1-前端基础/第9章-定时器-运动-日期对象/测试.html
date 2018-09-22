@@ -19,5 +19,17 @@
 </head>
 <body>
     <div id="box"></div>
+    <script>
+        var today=new Date();
+        console.log(today);
+        dateis=today.getDate()-1;
+        console.log(dateis);
+        var yesterday=today.setDate(today.getDate()-4);
+        var yesterday2=new Date();
+        yesterday2=today;
+        console.log(today);
+        console.log(yesterday);
+        console.log(yesterday2);
+    </script>
 </body>
 </html>

@@ -18,6 +18,50 @@
         创建日期对象的方法：
         new Date()
         */
+
+        var d1=new Date();
+        console.log(d1);
+        //没有参数的情况下
+        //输出结果是 Sat Sep 22 2018 11:16:50 GMT+0800 (中国标准时间)
+        //        星期  月份 日期 年份 时分秒   东八区   中国标准时间
+
+        var d2=new Date(2018,5,6,5,6,6);
+        console.log(d2);
+        // 输出结果是  Wed Jun 06 2018 05:06:06 GMT+0800 (中国标准时间)
+        //中间的参数不是必须每个都有
+
+        var d3=new Date("june 10,2013 12:13:14");
+        console.log(d3);
+
+        var d4=new Date().getTime();
+        console.log(d4);
+
+        var d5=new Date(new Date().getTime());
+        console.log(d5);
+
+        //注意：  date对象拿到的是本机时间  修改日期对象 修改的是对象的时间 本机时间不能修改
+
+
+        /*
+            获取日期对象的方法：
+            日期对象.getFullYear()  获取年份
+            日期对象.getMonth()   获取月份 从0开始的
+            日期对象.getDate   获取日期
+            日期对象.getDay    获取星期  0代表周日
+            日期对象.getHours() 获取小时
+            日期对象.getMinutes() 分钟
+            日期对象.getSeconds   秒钟
+            日期对象.getMilliseconds 毫秒
+            日期对象.getTime（）   获取时间戳
+        */
+
+        /*
+            设置日期对象的方法
+                setFullYear()  把上面的get 改成set
+                不能设置week 也就是getDay
+
+                注意：把日期设置为0 因为没有0号 所以自动改为上个月的最后一天   
+        */
     </script>
 </body>
 </html>

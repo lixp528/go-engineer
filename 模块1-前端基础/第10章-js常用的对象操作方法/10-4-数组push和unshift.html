@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        /*
+
+        数组的方法：
+            数组的方法 会影响原数组  string的方法 大多数不影响原string
+            push
+                作用:给数组的末尾添加数据
+                语法： 数组名.push（元素1，元素2）
+                参数  添加的数据
+                返回：数组添加后的长度 
+                注意：  会影响原数组
+
+            unshift：
+                作用：在数组前面添加数据
+                语法  数组名.unshift（数据1，数据2）
+                返回：添加数据后的数组长度
+                注意：会影响原数据
+
+            pop 
+                作用：删除数组最后一位数据：
+                语法： 数组名.pop（）  没有参数
+                返回值 删除的数据
+
+            shift
+                作用：删除数组的第一个数据
+                语法： 数组名.shift（） 没有参数
+                返回值  被删除的数据
+
+
+            foreach
+                作用：遍历数组
+                语法： 
+                    数组.foreach（
+                        function（currentvalue，index，array）{
+                            每次循环中执行的代码
+                        }
+                    ）
+                参数：currentvalue当前数组中的某个数据
+                      index当前数据的索引
+                      array 数据本身
+
+
+            sort
+                作用：对数组进行排序
+                语法 
+                    数组.sort（compare function）
+                    return a-b b-a
+                    返回排序后的数组
+
+                    随机排序的时候 function（） 没有参数
+                    return 0.5-Matn.random()；
+                参数：用来指定某种顺序排序方法
+                        举例：arr.sort（
+                            function（a，b）{
+                                执行的代码
+                            }
+                        ）
+
+
+            concat
+                作用 链接数组 组成一个新数组
+                语法： 数组.concat（value1，value2...）
+                参数：与原数组进行合并的数据 
+                返回新的数组
+                            注意：不影响原数组
+
+            reverse
+                作用： 颠倒数组
+                无参数
+                返回颠倒后的数组
+                影响原数组
+
+
+
+            join
+                作用：讲数组中的所有元素都链接成为一个字符串
+                语法：数组.join（separator）
+                参数
+                    separator 是一个连接符 用来把数据连城一个字符串
+                    separator： 无   默认是一个逗号，意思是arr的各部分之间有个，
+                                “”   直接把arr的各部分链接起来
+
+                返回string
+                对原数组没有影响
+
+            slice：
+                作用： 截取数组
+                语法：数组.slice【start，end】
+                不影响原数组
+
+            splice
+                作用：用新元素替换旧元素 以此修改数组的内容
+                语法：
+                    数组.splice.（start，deletecount，item）
+                       start 开始的位置
+                       deletecount 删除的个数
+                       item  替换的内容
+                返回值：返回删除的数据
+                影响原数组
+        */    
+    </script>
+</body>
+</html>

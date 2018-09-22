@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+    <style>
+        #clock{
+            height: 40px;
+            padding: 0;
+            margin: 0 auto;
+            text-align: center;
+            font: 20px/20px "华文彩云 常规";
+            color: rgba(163,85,12,0.3);
+            overflow: hidden;
+        }
+    </style>
+<body>
+    
+    <div id="clock"></div>
+
+    <script>
+        //这只是个粗略的实现
+        //精确的计算需要对比今天的星期和今年第一天的星期  是谁在前  谁在后
+        var d=new Date();
+        var  w=0; //存储周数
+        while(d.getFullYear()==2018){
+            d.setDate(d.getDate()-7);
+            console.log(d);
+            w++;
+            console.log(w);
+        }
+    </script>
+</body>
+</html> 
