@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        gdagfda<span style="background:yellow">fsdfsf</span>asdfafasf
+    </p>
+    <p></p>
+    <p id="show">
+        sdfsafsafasf
+    </p>
+    <script>
+        window.onload=function(){
+            
+            console.log("0");
+            var show=document.getElementById("show");
+            console.log(show.innerHTML);
+            console.log("1");
+            var arr=[1,2,3,4,5];
+            var arr2=[9,9,9,9];
+            console.log("2");
+            arr2.push("</span>");
+            console.log("3");
+            arr2.unshift('<span style="background:red">');
+            var arr2str=arr2.join("");
+            
+            // var arrstr=arr.join("");
+            arr.splice(2,1,arr2str);
+            console.dir(arr);
+            var arrstr=arr.join("");
+            show.innerHTML=arrstr;
+        };
+    </script>
+</body>
+</html>

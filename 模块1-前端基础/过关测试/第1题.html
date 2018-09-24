@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="move.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 730px;
+            height: 454px;
+            margin: 30px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #box ul{
+            position: absolute;
+            left: 0;
+        }
+        #box li{
+            list-style: none;
+            float: left;
+        }
+        #box div{
+            height: 70px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            bottom: 0;
+            font: 20px/30px "微软雅黑";
+            color:#fff;
+            text-align: left;
+        }
+        #box div h3{
+            font: 20px/40px "微软雅黑";
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li> <img src="images/1.jpg" alt="">  </li>
+            <li> <img src="images/2.jpg" alt="">  </li>
+            <li> <img src="images/3.jpg" alt="">  </li>
+            <li> <img src="images/4.jpg" alt="">  </li>
+            <li> <img src="images/5.jpg" alt="">  </li>
+            <li> <img src="images/6.jpg" alt="">  </li>
+        </ul>
+        <div>
+        </div>
+    </div>
+
+    <script>
+        window.onload=function(){
+            //目的：让ul的li排在一行 给了浮动 然后需要按照li的内容宽度修改ul的宽度
+            //得到要操作的元素
+            var ul=document.querySelector("#box ul");
+            //内容滚动要复制一份  不然如果先获取lis  就会访问不到宽度
+            ul.innerHTML+=ul.innerHTML;
+            var lis=document.querySelectorAll("#box li");
+            var h3=document.querySelector("h3");
+            var div=document.querySelector("#box div");
+            
+
+            //声明一个n 存储走的图片的个数  声明一个定时器
+            var n=0;
+            var timer;
+            //添加需要显示的变量
+            var textArr=[
+                {"title":"1","content":"1"},
+                {"title":"2","content":"2"},
+                {"title":"3","content":"3"},
+                {"title":"4","content":"4"},
+                {"title":"5","content":"5"},
+                {"title":"6","content":"6"},
+            ];
+        
+            
+            //把所有的li放在一行 需要先得到li的宽度 然后修改box ul的宽度
+            var liw=parseInt(getComputedStyle(lis[0]).width);
+            console.log(liw);
+            ul.style.width=liw*lis.length+"px";
+            
+
+            //添加文字
+            div.innerHTML='<h3>'+textArr[0].title+'</h3>'+'<p>'+textArr[0].content+'</p>';
+
+            //添加鼠标悬停和移开
+            box.addEventListener("mouseover",function(){
+                clearInterval(timer);
+            });
+            box.addEventListener("mouseout",function(){
+                timer=setInterval(movepic,3000);
+            });
+            
+
+            //添加动画效果
+            function movepic(){
+                n++;
+                
+                //把文字运动下去
+                move(div,{bottom:-70},'500','linear',function(){
+                    move(ul,{left:-730*n},'1000','linear',function(){
+                        if(n==lis.length/2){
+                                ul.style.left=0;
+                                n=0;
+                            }
+                        div.innerHTML='<h3>'+textArr[n].title+'</h3>'+'<p>'+textArr[n].content+'</p>';
+                        move(div,{bottom:0},'500','linear',function(){
+                            
+                        });
+                    });
+                });
+            }
+            timer=setInterval(movepic,3000);
+        };
+    </script>
+</body>
+</html>

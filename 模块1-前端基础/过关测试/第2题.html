@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            width: 744px;
+            height: 280px; 
+            /* 两个都显示520 */
+            padding: 0;
+            margin: 50px auto;
+            background: rgb(245, 242, 242);
+            position: relative;
+        }
+        #box #content{
+            width: 541px;
+            height: 222px;
+            border: 1px solid rgb(124, 96, 96);
+            background: rgba(199, 193, 193, 0.418);
+            font: 20px/40px "微软雅黑";
+            position:absolute;
+            top: 30px;
+            left: 30px;
+        }
+        #box #showlist{
+            width: 120px;
+            height: 70px;
+            text-align: center;
+            font: 30px/70px "微软雅黑";
+            position: absolute;
+            top:30px;
+            right: 30px;
+
+        }
+        #box #showfind{
+            width: 120px;
+            height: 70px;
+            text-align: center;
+            font: 30px/70px "微软雅黑";
+            position: absolute;
+            top:105px;
+            right: 30px;
+            display: none;
+
+        }
+        #box #showreplace{
+            width: 120px;
+            height: 70px;
+            text-align: center;
+            font: 30px/70px "微软雅黑";
+            position: absolute;
+            top:180px;
+            right: 30px;
+            display: none;
+
+        }
+                                        /* 下面是弹出框和两个功能键 */
+        #box #show{
+            width: 680px;
+            height: 180px;
+            border: 1px solid rgb(124, 96, 96);
+            position: absolute;
+            left: 30px;
+            bottom: 30px;
+            display: none;
+            margin-top: 50px;
+        }
+        #box #show #find{
+            width: 80px;
+            height: 40px;
+            font: 20px/40px "微软雅黑";
+            text-align: center;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        #box #show #replace{
+            width: 80px;
+            height: 40px;
+            font: 20px/40px "微软雅黑";
+            text-align: center;
+            position: absolute;
+            top: 20px;
+            left: 105px;
+        }
+        #box #show #shutdown{
+            width: 60px;
+            height: 40px;
+            font: 20px/40px "微软雅黑";
+            text-align: center;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+                                              /* 下面是查找的对话框 */
+        #box #show #findfunc{
+            height: 95px;
+            width: 525px;
+            position: absolute;
+            left: 20px;
+            top: 65px;
+            display: none;
+
+        }
+        #box #show #findfunc #tofind{
+            width: 415px;
+            height: 51px;
+            position: absolute;
+            left: 0;
+            top:20px;
+            font: 20px/50px "微软雅黑";
+            text-align: left;
+        }
+        #box>#show>#findfunc>#startfind{
+            width: 100px;
+            height: 55px;
+            font: 20px/55px "微软雅黑";
+            text-align: center;
+            position: absolute;
+            left: 425px;
+            top:20px;
+        }
+                                                    /* 下面是替换的对话框 */
+        #box #show #replacefunc{
+            height: 95px;
+            width: 525px;
+            position: absolute;
+            left: 20px;
+            top: 65px;
+            display: -none;
+        }
+        #box>#show>#replacefunc>#tof{
+            width: 200px;
+            height: 51px;
+            position: absolute;
+            left: 0;
+            top:20px;
+            font: 20px/50px "微软雅黑";
+            text-align: left;
+        }
+        #box>#show>#replacefunc>#tor{
+            width: 200px;
+            height: 51px;
+            position: absolute;
+            left: 220px;
+            top:20px;
+            font: 20px/50px "微软雅黑";
+            text-align: left;
+        }
+        #box>#show>#replacefunc>#startreplace{
+            width: 100px;
+            height: 51px;
+            position: absolute;
+            left: 435px;
+            top:20px;
+            font: 20px/50px "微软雅黑";
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p id="content">本章将着眼于网络编程的基础方法，将涉及到主机和服务寻址，也会考虑到TCP和UDP。同时也将展示如何使用GO的TCP和UDP相关的API来构建服务器和客户端。最后介绍了原生套接字，如果你需要基于IP协议实现你自己的协议的话。</p>
+        <input type="button" id="showlist" value="展开">
+        <input type="button" id="showfind" value="查找">
+        <input type="button" id="showreplace"" value="替换"">
+
+
+        <div id="show">
+            <input type="button" id="find"  value="查找">
+            <input type="button" id="replace"  value="替换">
+            <input type="button" id="shutdown"  value="关闭">
+
+            <div id="findfunc">
+                <input type="text" name="tofind" id="tofind">
+                <input type="button" id="startfind" value="查找">
+            </div>
+            <div id="replacefunc">
+                <input type="text" id="tof" name="tof">
+                <input type="text" id="tor" name="tor">
+                <input type="button" id="startreplace" value="替换">
+            </div>
+            
+        </div>
+        
+    </div>
+    
+
+    <script>
+        window.onload=function(){
+            //上面的四个内容
+            var showlist=document.getElementById("showlist");
+            var showfind=document.getElementById("showfind");
+            var showreplace=document.getElementById("showreplace");
+            //var content=document.getElementById("content");
+            //var content_store=content.innerHTML;
+            //下面的框和三个功能键
+            var show=document.getElementById("show");
+            var find=document.getElementById("find");
+            var replace=document.getElementById("replace");
+            var shutdown=document.getElementById("shutdown");
+            //两个div不能同时出现
+            var findfunc=document.getElementById("findfunc");
+            var replacefunc=document.getElementById("replacefunc");
+            //功能键
+            var startfind=document.getElementById("startfind");
+            var startreplace=document.getElementById("startreplace");
+            //输入框
+            var tofind=document.getElementById("tofind");
+            var tof=document.getElementById("tof");
+            var tor=document.getElementById("tor");
+
+
+        
+            //console.log(content_store);
+            //功能1 点击展开的功能
+                showlist.onclick=function(){
+                    if(getComputedStyle(showfind).display=="none"){
+                        showfind.style.display="inline-block";
+                        showreplace.style.display="inline-block";
+                    }else{
+                        showfind.style.display="none";
+                        showreplace.style.display="none";
+                    }
+                };
+
+
+            //功能2点击查找弹出下面的内容
+                showfind.onclick=function(){
+                    box.style.height="520px";
+                    show.style.display="block";
+                    findfunc.style.display="inline-block";
+                    replacefunc.style.display="none";
+                    find.style.background="#483D8B";
+                    startfind.style.background="#483D8B";
+                    replace.style.background="buttonface";
+                };
+            //功能3 点击替换弹出下面的内容
+                showreplace.onclick=function(){
+                    box.style.height="520px";
+                    show.style.display="block";
+                    findfunc.style.display="none";
+                    replacefunc.style.display="inline-block";
+                    replace.style.background="#483D8B";
+                    find.style.background="buttonface";
+                    startreplace.style.background="#483D8B";
+                };
+
+            //功能4 点击下面的查找的选择框
+                find.onclick=function(){
+                    box.style.height="520px";
+                    show.style.display="block";
+                    findfunc.style.display="inline-block";
+                    replacefunc.style.display="none";
+                    find.style.background="#483D8B";
+                    startfind.style.background="#483D8B";
+                    replace.style.background="buttonface";
+                };
+            //功能5 点击下面的替换的功能选择框
+                replace.onclick=function(){
+                    box.style.height="520px";
+                    show.style.display="block";
+                    findfunc.style.display="none";
+                    replacefunc.style.display="inline-block";
+                    replace.style.background="#483D8B";
+                    find.style.background="buttonface";
+                    startreplace.style.background="#483D8B";
+                };
+
+            //功能6 关闭下面的功能框
+                shutdown.onclick=function(){
+                    show.style.display="none";
+                    box.style.height="280px";
+                };
+            //功能7 查找的功能
+                startfind,onclick=function(){
+                    if(tofind.value!=""){
+                        var temp=tofind.value;
+                        temp=temp.trim();
+                        var tempArr=temp.split("",temp.length);
+                        var content=document.getElementById("content");
+                        var content_store=content.innerHTML;
+                        //console.log(temp);
+                        //console.dir(tempArr);
+
+                        var contentArr=content_store.split("",content.length);
+                        
+                        function find_func(Arr1,Arr2){
+                            var result=[];
+                            for(var i=0;i<Arr2.length;i++){
+                                if (Arr2[i]==Arr1[0]){
+                                    result.push(i);
+                                }  
+                            }
+                            return result;
+                        }
+                        var firstResu=find_func(tempArr,contentArr);
+                        var finallyresult=[];
+                        //console.log(firstResu);
+                        //console.log(firstResu.length);
+                        if (firstResu.length==0){
+                            alert("你输入的内容没有找到");
+                        }else{
+                            console.log("进入了else");
+                            for(var i=0;i<firstResu.length;i++){
+                                //console.log(firstResu[i]);
+                                //console.log(temp.length);
+                                var tempstr=content_store.substring(firstResu[i],(firstResu[i]+temp.length));
+                                //console.log(tempstr);
+                                if(tempstr==temp){
+                                    finallyresult.push(firstResu[i]);
+                                }
+                            }
+                            //console.log(finallyresult);
+                            //console.log("算出来了最终结果"); //最终结果是空
+                            
+                            for(i=0;i<finallyresult.length;i++){
+                                var arrToBeAdd=tempArr;
+                                arrToBeAdd.push("</span>");
+                                arrToBeAdd.unshift('<span style="background:yellow">')
+                                var arrToBeAddStr=arrToBeAdd.join("");
+                                //console.log(arrToBeAddStr);
+                                //console.log(temp.length);
+                                contentArr.splice(finallyresult[i],temp.length,arrToBeAddStr);
+                            }
+                            //console.log(contentArr);
+                            content.innerHTML=contentArr.join("");
+                        }
+                    
+
+                    }else{
+                        //alert("你输入的内容没找到");
+                    }
+                };
+
+            //功能7 替换的功能
+                startreplace.onclick=function(){
+                    if(tof.value!=""){
+                        var tobefind=tof.value;
+                        tobefind=tobefind.trim();
+                        var tobereplace=tor.value;
+                        tobereplace=tobereplace.trim();
+                        var tobefindArr=tobefind.split("",tobefind.length);
+                        console.log("输入被替换的数组为",tobefindArr);
+                        //得到当前的content
+                        var content=document.getElementById("content");
+                        var content_store=content.innerHTML;
+                        var contentArr=content_store.split("",content.length);
+                        console.log("当前content",contentArr);
+
+                        //判断是否两个框都有输入
+                        if((tobefind=="")&&(tobereplace=="")){
+                            alert("请输入要替换内容");
+                        }
+                        //判断是否是删除操作
+                        if((tobefind!="")&&(tobereplace=="")){
+                            var message=confirm("你确定删除吗？");
+                            if(message==true){
+                                findplace(tobefindArr,contentArr);
+                            }
+                            if(message==false){
+                                tof.value="";
+                            }
+                        }
+
+                        //正常的查找删除
+                        function findplace(Arr1,Arr2){
+                            var midresult=[];
+                            var midresult2=[];
+                            
+                            
+                            for(var i=0;i<Arr2.length;i++){
+                                if(Arr2[i]==Arr1[0]){
+                                    midresult.push(i);
+                                }
+                            }
+                            if(midresult.length==0){
+                                alert("你输入的内容没找到");
+                            }else{
+                                console.log("找到需要被替换的元素的大概位置是",midresult);
+                                for(var i=0;i<midresult.length;i++){
+                                    var contentstr=content_store.substring(midresult[i],(midresult[i]+tobefind.length));
+                                    if(tobefind==contentstr){
+                                        midresult2.push(midresult[i]);
+                                    }
+                                }
+                                console.log(midresult2);
+                                for(var i=0;i<midresult2.length;i++){
+                                    contentArr.splice(midresult2[i],tobefind.length,tobereplace); 
+                                }
+                                content.innerHTML=contentArr.join("");
+                            }
+                            
+                        }
+                        findplace(tobefindArr,contentArr);
+
+                    }
+                };
+        };
+    </script>
+</body>
+</html>
