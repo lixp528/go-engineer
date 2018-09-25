@@ -281,7 +281,8 @@
                     box.style.height="280px";
                 };
             //功能7 查找的功能
-                startfind,onclick=function(){
+                startfind.onclick=function(){
+                    console.log("in");
                     if(tofind.value!=""){
                         var temp=tofind.value;
                         temp=temp.trim();
@@ -337,7 +338,7 @@
                     
 
                     }else{
-                        //alert("你输入的内容没找到");
+                        alert("你输入的内容没找到");
                     }
                 };
 
@@ -357,9 +358,9 @@
                         console.log("当前content",contentArr);
 
                         //判断是否两个框都有输入
-                        if((tobefind=="")&&(tobereplace=="")){
-                            alert("请输入要替换内容");
-                        }
+                        // if((tobefind=="")&&(tobereplace=="")){
+                        //     alert("请输入要替换内容");
+                        // }
                         //判断是否是删除操作
                         if((tobefind!="")&&(tobereplace=="")){
                             var message=confirm("你确定删除吗？");
@@ -400,8 +401,12 @@
                             }
                             
                         }
+
+                        if((tobefind!="")&&(tobereplace!=""))
                         findplace(tobefindArr,contentArr);
 
+                    }else{
+                        alert("请输入要替换内容");
                     }
                 };
         };
