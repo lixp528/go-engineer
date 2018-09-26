@@ -374,8 +374,8 @@
                         console.log("输入被替换的数组为",tobefindArr);
                         //得到当前的content
                         var content=document.getElementById("content");
-                        var content_store=content.innerHTML;
-                        var contentArr=content_store.split("",content.length);
+                        var content_store2=content.innerHTML;
+                        var contentArr=content_store2.split("",content.length);
                         console.log("当前content",contentArr);
 
                         //判断是否两个框都有输入
@@ -411,7 +411,7 @@
                             }else{
                                 console.log("找到需要被替换的元素的大概位置是",midresult);
                                 for(var i=0;i<midresult.length;i++){
-                                    var contentstr=content_store.substring(midresult[i],(midresult[i]+tobefind.length));
+                                    var contentstr=content_store2.substring(midresult[i],(midresult[i]+tobefind.length));
                                     if(tobefind==contentstr){
                                         midresult2.push(midresult[i]);
                                     }
@@ -423,6 +423,7 @@
                                 content.innerHTML=contentArr.join("");
                                 tor.value="";
                                 tof.value="";
+                                content_store=contentArr.join("");
                             }
                             
                         }
