@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <STYle>
+        #box{
+            width:400px;
+            height: 300PX;
+            background: #CCC;
+            border: 10PX solid #F00;
+            position: absolute;
+            /* left: 50%;
+            top: 50%;
+            margin-left:-210px;
+            margin-top: -160px; */
+        }
+    </STYle>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        // css的方法比js的方法更加简单
+        window.onload=function(){
+            var box=document.getElementById("box");
+
+            var l=(document.documentElement.clientWidth-box.offsetWidth)/2;
+            var t=(document.documentElement.clientHeight-box.offsetHeight)/2;
+            box.style.left=l+'px';
+            box.style.top=t+'px';
+        }
+    </script>
+</body>
+</html>

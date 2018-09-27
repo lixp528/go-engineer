@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="box" class="color" style="width:100px;">
+        <p>
+            <span></span>
+        </p>
+        <!-- 注释 -->
+    </div>
+    
+    <script>
+        window.onload=function(){
+            var box=document.getElementById("box");
+            var attr=box.attributes;
+            console.log(attr);
+            var child=box.childNodes; //元素子节点的集合
+            console.log(child);
+
+
+            //元素节点
+            console.log(box.nodeName);
+            console.log(box.nodeType);  //返回1  1代表元素节点
+            console.log(box.nodeValue)
+            //属性节点
+            console.log(attr[1].nodeName);
+            console.log(attr[1].nodeType); //返回2  2代表属性节点
+            console.log(attr[1].nodeValue);
+            //文本节点
+            console.log(child[0].nodeName);
+            console.log(child[0].nodeType); //返回3 3代表文本节点（回车 是文本节点）
+            //注释节点
+            console.log(child[3].nodeName); // #comment          （ 注释节点）
+            console.log(child[3].nodeType); // 8
+            //文档节点
+            console.log(document.nodeName); //#document    
+            console.log(document.nodeType); //9
+        };
+        /*
+            1.DOM
+            JavaScript由三部分构成
+                ECMA script （JavaScript的核心模块，也是一个解析器）
+                DOM
+                    文档对象模型
+                    DOM是关于创建，插入修改，删除页面元素的标准
+                    DOM赋予我们操作页面的能力
+
+                    页面内容都是字符串 js会把这些字符串转成dom树  dom树会把字符串转成节点 我们操作dom的根本就是操作节点
+                BOM（browser object model）
+                    BOM是关于如何控制浏览器的一些东西
+                    目前BOM没有一个完整的标准
+
+
+            2.DOM节点：
+                attributes 属性节点
+                    返回元素身上所有的属性节点 每个属性都会有一个自己对应的下标
+                    它有一个length属性 代表元素身上有多少个属性节点
+
+                childNodes
+                    元素身上的第一层子节点,返回元素身上的所有第一层子节点的集合
+                    text是什么意思呢：回车
+
+                nodeName
+                    节点的名称
+                nodeType
+                    节点的类型
+                        DOM节点类型很多 一共十二中  常用的也就两种
+                            元素 (标签 是一个html标签) 
+                            属性 （标签当中的属性） 
+                            注释
+
+
+                tagname:
+                    nodeName是节点名称 用来区分节点的类型，任何节点都有这个属性
+                    tagName是标签名称 也就是说只有元素节点  标签才有
+
+
+
+            3.DOM查找节点的方法
+                parentNode
+                    父节点顺序    最外层节点  >body >html  >document  
+                    用来获取当前DOM节点的父节点
+                    属性节点没有父节点
+                    元素节点和注释节点有父级
+
+
+                children 
+                    元素
+                        父级。children  
+                        获取到父级下的第一层子元素集合 返回一个集合  这里只包括标签元素，这不是一个标准的方法也就是说不是w3c标准里面定义的东西
+
+                        和childNodes 获取元素的所有子节点 包括文本 注释等等 可以使用这个方法 来实现上面的children方法
+
+                previousElementSibling  
+                    查找兄弟节点，返回的是这个节点的上一个兄弟节点 按照顺序来的前一个 如果没有前一个会报错
+                nextElementSibling
+                    查找按照顺序的下一个顺序节点 返回下一个节点  没有会报错
+                firstElementChild
+                    找到第一个子节点
+                    当前节点的第一个子节点
+                lastElementChild
+                    返回当前节点的最后一个子节点
+
+                offsetParent
+                    作用：获取离元素最近的有定位的父级  一层一层网上找 找到有定位的父级就返回
+                        如果父级都没有定位 返回body
+                        父级一定要给一个定位
+                        body没有offsetparent
+
+
+            4.DOM方法获取位置信息
+                offsetleft
+                    找到离本元素最近的有定位的父级 并返回这个父级和本元素的横向距离 不带单位 不带边框
+                offsettop
+                    找到离本元素最近的有定位的父级， 返回这个父级和本元素的竖向距离 不带单位 不带边框
+
+                        如果都没有定位 默认是到html的距离 ie不兼容
+
+                getBoundingClinetRect
+                    作用：获取到元素盒模型的一些信息 返回一个map 结果没有单位
+                    注意下面的值包含边框
+                    width 元素的宽度
+                    height 元素的高度
+                    left   元素的最左边到可视区的最左边的距离
+                    right 从元素的最右边 到可视区的最左边的距离
+                    top   元素的最上面到 可视区的最上面的距离
+                    bottom
+            
+            5.DOM操作属性的方法
+                之前属性操作的方法
+                    第一个  点操作符 .
+                    第二个  []操作符 中间放属性名，属性名要加''
+
+                getAttribute
+                    用来获取元素的属性
+                    元素.getAttribute（属性名）
+                        这种方法取不到js的自定义属性 但是在html里面定义的属性是可以取到的  但是之前的方法取不到html里面的自定义属性
+                        h5里面有个新的dataset方法 可以获取到 html里面自定义的以data-开头的属性
+
+                setAttribute
+                    用来设置元素属性
+                    元素。setAttribute（attr，value）
+                    两个参数 
+                
+                removeAttribute
+                    元素.removeAttribute（属性名）
+
+            6 DOM操作元素的宽高
+                之前用的方法
+                    getcomputedstyle（）
+                    现在使用
+                        元素.offsetwidth（） 返回元素的宽度
+                        元素.clientwidth（） 返回元素的宽度 不包括边框
+
+                        元素.offsetHeight（） 返回高度
+                        元素.clientHeight（） 返回高度 不包括边框
+
+                可视区的宽高
+                    document。documentElement。Clientwidth
+                    document。documentElement。clientHeight
+
+
+            7 DOM元素操作
+                document。createElement（tagname）
+                    通过标签名创建一个元素
+                        注意：主语只能是document 其他元素都没权利创建
+                                只能创建元素节点
+                
+                parentNode。appendChild（childNode）
+                    往一个元素里面添加一个子节点  注意是添加到最后
+                    返回值是添加的那个元素 
+
+                parentNode.insertBefore(childNode1,childBode2)
+                    往一个节点的指定子节点前面插入一个节点
+                    childNode1 是要插入的元素
+                    childBode2插入的位置 
+                    如果第二个参数为undefined  或者null 效果等同于 appendChild（第二个参数也是必须有的 不然报错）
+                    返回值是childBode1
+
+                parentNode.removeChild(childNodes)
+                    从一个节点中删除指定的子节点
+                    返回被删除的元素
+
+                replaceChild 
+                    作用：替换元素
+                    父级元素。replaceChild（node，ChildNode）
+                    node是要替换的元素
+                    childnode是要被替换的元素
+                    返回值： 被替换掉的元素
+
+
+                
+
+
+        */
+    </script>
+</body>
+</html>

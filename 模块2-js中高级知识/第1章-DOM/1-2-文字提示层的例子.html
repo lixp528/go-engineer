@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+
+    <style>
+        #text{
+            width: 500px;
+            height: 200px;
+            margin: 100px  auto  0;
+            padding: 10px;
+            line-height: 40px;
+            font-size: 24px;
+
+        }
+        strong{
+            cursor: pointer;
+            color: red;
+        }
+        #tips{
+            display: none;
+            padding: 10px;
+            border: 1px solid #000;
+            line-height: 28px;
+            font-size: 16px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: white;
+            max-width: 200px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="text">
+        <strong>JavaScript</strong>一种直译式的脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为<strong>JavaScript</strong>引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在<strong>HTML</strong>（标准通用语言下的一个应用）网页上使用，用来给<strong>HTML</strong>网页增加动态功能。
+    </div>
+    <div id="tips"></div>
+
+    <script>
+        window.onload=function(){
+            var arr=['JavaScript',
+                    '这里写注释',
+                    '这里写注释2',
+                    '这些注释3'];
+            var strongs=document.querySelectorAll("strong");
+            var tips=document.getElementById("tips");
+
+
+            for(var i=0;i<strongs.length;i++){
+                strongs[i].index=i;
+                strongs[i].onmouseover=function(){
+                    tips.style.display='block';
+                    tips.innerHTML=arr[this.index];
+                    tips.style.left=this.offsetLeft+'px';
+                    tips.style.top=(this.offsetTop+30)+'px';
+                }
+                strongs[i].onmouseout=function(){
+                    tips.style.display='none';
+                }
+            }
+        };
+    </script>
+</body>
+</html>
