@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="color">
+        <li>grenn</li>
+        <li>blue</li>
+        <li>red</li>
+        <li>yellow</li>
+        <li>pink</li>
+    </ul>  
+    
+    <script>
+        window.onload=function(){
+            var color=document.getElementById("color");
+            var lis=document.querySelectorAll("li");
+            
+            for(var i =0;i<lis.length;i++){
+                lis[i].onclick=function(){
+                    alert(this.innerHTML);
+                }
+            }
+            //innerHTML给color添加元素
+            /*
+                使用innerHTML会先把原来的元素清空 然后添加进去字符串 只不过浏览器把字符串解析成和原来的看起来一样的内容
+                在这种情况下 原来的元素身上的事件就都没了
+            */
+            //color.innerHTML+="<li>white</li>";
+
+
+            //DOM方法添加元素
+            /*
+                会把心的元素追加到原来的元素里面 原来的元素所具有的的事件都还有
+            */
+            newli=document.createElement('li');
+            newli.innerHTML="white";
+            color.appendChild(newli);
+        }
+    </script>
+</body>
+</html>

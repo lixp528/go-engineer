@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 表格 -->
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>lee</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>liu</td>
+                <td>26</td>
+            </tr>
+            <tr>
+                <td>min</td>
+                <td>29</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <td rowspan="2">都是人</td>
+        </tfoot>
+    </table>
+
+
+    <hr>
+
+
+    
+    <script>
+        /*
+            tbody注意不能不写
+            表格的DOM提供的相关操作
+            
+            
+            表格头获取
+                表格.tHead
+                    返回表格头元素
+                
+            表格主题获取：
+                表格.tBodies
+                    返回表格的主题内容  是一个数组
+
+            表格底部获取
+                表格。tFoot
+                    返回表格的底部 tFoot里的所有内容
+                    注意一个表格只有一个tfoot
+
+            表格行的获取
+                表格.rows/tHead.rows/tBodied.rows/tFoot.rows
+                    返回各自对应的行 是一个数组
+                    可以设置整个行（整个数组）的元素属性
+
+            单元格的获取
+                行.cells
+                    返回这一行的所有单元格
+                注意：不能对所有单元格操作 必须加下标对某一个单元格操作
+        */
+    </script>
+
+
+    <form action="#" id="form">
+        <input type="text" name="username" value="">
+        <p>
+            性别
+            <input type="radio" name="sex" value="man">男
+            <input type="radio" name="sex" value="woman">女
+        </p>
+        <p>
+            兴趣
+            <input type="checkbox" name="interest" value="吃饭">吃饭
+            <input type="checkbox" name="interest" value="睡觉">睡觉
+        </p>
+        <p>
+            来自于
+            <select name="sel" id="">
+                <option value="beijing">北京</option>
+                <option value="shanghai">上海</option>
+            </select>
+        </p>
+        <textarea name="text"  cols="30" rows="10"></textarea>
+        <input type="button" name="btn" value="点击">
+        <input type="submit" name="sub" value="提交">
+        <input type="reset" name="res"  value="重置">
+        <input type="button" name="send" value="发送">
+    </form>
+
+    <script>        
+        /*
+            DOM操作表单
+
+            表单的写法： 见上面
+
+
+            操作表单：
+
+            获取表单的值：
+                首先获取表单对应的元素node    node=form_name.input_name          form_name.input_name.value
+                node.value
+                哪些元素有value   input select textarea 等等都有
+                        如何获取checkbox的值
+                        checkbox是一個數組 所以不能直接获取value的值 需要加上下标才可以
+
+        
+
+        表单的事件
+            selectedIndex
+            获取select下拉框的索引值，索引值是默认添加的 不是我们设置的
+
+            oninput
+                在输入框输入内容的时候就会触发这个时间
+
+            onchange
+                在下拉框的内容改变的时候触发这个方法
+
+            onsubmit
+                当表单提交的时候触发（点击submit 的时候触发）
+                这个方法的主语是表单
+                语法： 表单.onsubmit
+
+            onreset
+                当点击reset按钮的时候 才能触发
+                这个方法的主语是表单 form
+                语法：  表单.onreset
+
+
+        表单的方法
+            表单.submit（）提交表单
+                调用这个方法提交表单
+            表单.reset（） 重置表单
+                重置  会触发onreset事件
+        */
+    </script>
+</body>
+</html>

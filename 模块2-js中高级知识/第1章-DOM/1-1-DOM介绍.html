@@ -194,6 +194,16 @@
                     childnode是要被替换的元素
                     返回值： 被替换掉的元素
 
+                cloneNode
+                    作用：克隆一个节点
+                    语法： 要克隆的节点.cloneNode（Boolean）
+                    参数：  ture 克隆元素和元素内的所有子孙节点
+                            false 克隆元素 不包括子孙 节点
+                        注意：克隆只能克隆html和css js 是不可隆的
+                                克隆复制了元素的id 会重名 不符合标准  需要手动修改id
+                    返回值：克隆的内容
+                
+                注意：appendChild/insertbefore/replaceChild 在操作一个已有的元素的时候  是将已有的元素移动 而不是复制
 
                 
 

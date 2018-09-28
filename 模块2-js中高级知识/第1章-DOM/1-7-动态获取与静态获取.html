@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 动态和静态获取元素 -->
+
+    <ul id="color">
+        <li>1red</li>
+        <li>2green</li>
+        <li>3blue</li>
+        <li>4yellow</li>
+        <li>5pink</li>
+    </ul>
+
+    <script>
+        //queryselectorAll 和getElementById的区别
+        //queryselectorall 在获取以后 li的循环当中 顺序的改变不会有影响 在循环当中lis的顺序一直都是最初获取的顺序
+        //getElementBytagname   在获取以后 li的循环当中 li的顺序会随着每次的循环而改变  
+
+        /*
+            结论 
+            getElementById 动态获取元素 ，原先的结果有变化就重新去获取
+            DOM的方法也是动态的
+            querySelector 是静态的 相当于把原来的标签复制了一份 不会对原结果又影响
+        */
+        window.onload=function(){
+            var color=document.getElementById("color");
+            //var lis=document.querySelectorAll("li");
+            var lis=document.getElementsByTagName("li");
+
+            for(var i=0;i<lis.length;i++){
+                color.appendChild(lis[i]);
+            }
+        }
+    </script>
+
+</body>
+</html>
