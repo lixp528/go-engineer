@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #f00;
+        }
+        #div2{
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div1">
+        <div id="div2">
+
+        </div>
+    </div>
+
+    <script>
+        window.onload=function(){
+            var div1=document.getElementById('div1');
+            div1.onclick=function(){
+                console.log("offsetHeight:",div1.offsetHeight);
+                console.log("clientHeight:",div1.clientHeight);
+                console.log("scrollHeight:",div1.scrollHeight);
+            }
+
+        };
+    </script>
+
+    <script>
+    /*
+        首先回顾一下元素的高度
+            offsetHeight
+            clientHeight
+
+        内容的高度
+            被内容撑开的高度
+            scrollHeight  
+            语法：  元素。scrollHeight
+            内容如果没有外层高 那么取到的就是外层的值
+
+            有兼容性问题（取body的高度的时候）
+    */
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            height: 3000px;
+        }
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: red;
+            font:20px/100px "微软雅黑";
+            color: #fff;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        回到顶部
+    </div>
+
+    <script>
+        window.onload=function(){
+            var div=document.getElementById("div1");
+            console.log("执行js");
+             
+             window.onscroll=function(){
+                 var t=window.pageYOffset;
+                 console.log("检测到滚动");
+
+                 if(t>200){
+                     div.style.display="block";
+                 }else{
+                     div.style.display="none";
+                 }
+             };
+             div.onclick=function(){
+                 window.scrollTo(0,0);
+             };
+        };
+    </script>
+
+    <script>
+    /*
+        回到顶部的效果
+    */
+    </script>
+</body>
+</html>
