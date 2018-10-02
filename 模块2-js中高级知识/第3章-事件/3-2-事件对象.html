@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+    /*
+        event 对象
+            记录了事件发生的一些关于时间的详细信息
+            当一个时间发生的时候 和当前这个事件有关系的细节信息 都会保存在一个对象中，这个对象 我们称呼为事件对象
+
+            注意：event对象 是事件处理函数里面的第一个参数  不同的事件  事件对象内容不同
+
+            chrom/ie  在这两个对象那个中 event是window身上的对象，不需要获取
+            火狐 FF  事件对象必须是第一个函数
+            chrom 两种方法 兼容
+
+
+            注意： event是事件处理函数的第一个参数  函数必须是事件处理函数   事件处理函数  就是 onclick=function（event）
+
+
+        event常用属性：
+
+                鼠标坐标：
+                    event.clientX/event.clientY  事件发生的时候  鼠标的位置信息 位置信息根据可视区的左上角开始计算
+
+                事件源
+                    event.target    触发事件发生的元素
+
+                键盘事件里面常用属性：
+                event.keyCode  按下的是哪个键 返回这个键的对应的Unicode
+
+                event.ctrlkey  事件发生的时候  Ctrl键是否按下
+                event.shiftkey
+                event.altkey
+                    注意：上面这三个键 不只是键盘事件有  鼠标事件也会有
+
+                    
+    */
+    
+    window.onload=function(){
+        document.onclick=function(ev){
+            console.dir(ev);
+        };
+    };
+    </script>
+</body>
+</html>

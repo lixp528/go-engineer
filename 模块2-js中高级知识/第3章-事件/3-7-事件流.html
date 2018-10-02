@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+    /*
+        事件流
+            事件流指事件在触发时的一个流程，就像for循环一样的一个执行过程。
+
+            1.捕获
+            在事件触发的时候，会先执行一个阶段叫做捕获阶段，从最外层向触发该事件元素寻找一个过程
+            2.目标阶段：
+            找到以后触发目标阶段，执行元素的事件
+            3. 冒泡阶段
+            从触发时间的元素从内向外冒泡
+
+            注意：如果在上面的流程中 如果任意一个过程中有相同事件 都会触发
+
+                同一个元素的阶段  按照代码的先后顺序执行
+
+
+        阻止事件冒泡
+
+            1 阻止on添加的事件冒泡
+                on添加的事件
+                    找到event对象 把 cancelBubble的值设为true 
+                            这个cancelBubble的值默认为false  表示事件可以冒泡
+
+            2 用addEventListener添加的事件
+                在事件函数内调用event的stopPropagation（）方法
+    */
+    </script>
+</body>
+</html>

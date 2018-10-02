@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid #000;
+            position: absolute;
+            background: orange;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+
+
+
+    <script>
+
+        /*
+            首先分析一下需要做的事情：
+            改变宽高 轮流显示
+            改成圆形
+            定时器
+            中心点要改变
+        */
+        window.onload=function(){
+            var divs=document.querySelectorAll("div");
+
+            
+            
+            document.onclick=function(event){
+                // clearInterval(timer);
+                
+                move(divs[0],event);
+                setTimeout(function(){
+                    move(divs[1],event);
+                },300);
+
+                setTimeout(function(){
+                    move(divs[2],event);
+                },600);
+                
+            };
+
+            //写个函数 对所有的div操作
+            function move(obj,event){
+                //设置初始透明度
+                obj.opc=100;
+                obj.style.display="block";
+                console.log(obj.opc);
+
+                obj.timer=setInterval(function(){
+                    console.log(obj.opc);
+                    obj.style.width=(obj.offsetWidth+4)+"px";
+                    obj.style.height=(obj.offsetHeight+4)+"px";
+                    //每走一次让透明度-4，同时要除以100 转到透明度的值范围
+                    obj.style.opacity=(obj.opc -= 4)/100;
+                    console.log(obj.style.opacity);
+                    obj.style.left=(event.clientX-obj.offsetWidth/2)+"px";
+                    obj.style.top=(event.clientY-obj.offsetHeight/2)+"px";
+                    if(obj.opc<=0){
+                        clearInterval(obj.timer);
+                        obj.style.width="10px";
+                        obj.style.height="10px";
+                        obj.style.opacity=0;
+                        obj.style.display="none";
+
+                    }
+                },16);
+            }
+        };
+    </script>
+</body>
+</html>

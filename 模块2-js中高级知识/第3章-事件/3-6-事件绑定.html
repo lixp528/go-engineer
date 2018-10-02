@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="button" id="btn1" value="按钮1">
+    <input type="button" id="btn2" value="按钮2">
+
+
+    <script>    
+        /*
+            事件绑定方法：
+            1 on
+                方法：
+                元素.on事件名称=函数
+
+                    注意：
+                            事件名称本身是不带on的 比如click  绑定的时候 用on  比如 onclick
+                            如果同一个onclick想绑定多个事件  那么后面的事件会覆盖前面的事件
+
+            2 addEventListener
+
+                方法： 
+                元素.addEventListener（事件名称。事件绑定函数，一个Boolean值）
+
+                    注意：
+                            参数1：这里是一个string  要加冒号
+                            参数2：这个事件绑定函数 可以是匿名函数 也可是命名函数，可以添加多个事件函数  后面的不会覆盖前面的
+                            参数3 Boolean值，
+                                true 事件在捕获阶段发生
+                                false 事件在冒泡阶段发生（默认为false）
+
+
+            事件移除
+            1 移除on添加的事件
+                对象。on事件名称=null
+
+            2移除addEventListener添加的事件
+                对象.removeEventListener（事件名称，事件绑定函数，Boolean）
+
+                    参数1： 事件名称是一个string  要加引号
+                    参数2：  若果addEventListener添加的是匿名函数  name无法通过removeEventListener移除 只能通过这种方法移除命名函数
+
+                            疑问： 如果addEventListener要使用event 怎么办
+
+        */
+    </script>
+</body>
+</html>

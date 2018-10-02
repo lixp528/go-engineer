@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #small{
+            width: 300px;
+            height: 300px;
+            position: relative;
+            float: left;
+            margin-right: 10px;
+        }
+        #small img{
+            width: 300px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #small div{
+            width: 100px;
+            height: 100px;
+            opacity: 0.5;
+            background: greenyellow;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: move;
+            display: none;
+        }
+        #big{
+            width: 500px;
+            height: 500px;
+            float: left;
+            overflow: hidden;
+            position: relative;
+            display: none;
+        }
+        #big img{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="small">
+        <img src="image/1.png" alt="">
+        <div id=""></div>
+    </div>
+    <div id="big">
+        <img src="image/1.png" alt="">
+    </div>
+
+
+    <script>
+        window.onload=function(){
+            var small=document.getElementById("small");
+            var div=document.querySelector("#small div");
+            var big=document.getElementById("big");
+
+            //鼠标放到小图上出现两个元素
+            small.onmouseover=function(){
+                div.style.display="block";
+                big.style.display="block";
+            };
+            //鼠标移出两个元素消失
+            small.onmouseout=function(){
+                div.style.display="none";
+                big.style.display="none";
+            };
+
+            small.onmousemove=function(event){
+                //div.style.display='none';  //通过设置这个div消失再显示出来 可以使得鼠标移动的时候看着只有一个div  不然的话会有两个  调换x和y的先后顺序没有影响
+                //加上这句话 导致获取不到div.offsetHeight
+                console.log(event.offsetY,div.offsetHeight,small.offsetTop,event.clientX,div.offsetWidth,small.offsetLeft);
+                div.style.top=(event.offsetY-div.offsetHeight/2-small.offsetTop)+'px';
+                div.style.left=(event.clientX-div.offsetWidth/2-small.offsetLeft)+'px';
+                div.style.display="block";
+                
+            }
+        };
+    </script>
+</body>
+</html>

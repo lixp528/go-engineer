@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            margin-left: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div  id="box" >
+        <input type="button" id="btn"  value="按钮1 ">
+    </div>
+
+    <script>
+        /*测试1
+        window.onload=function(){
+            function func1(){
+                var mn=100;
+                func2();
+
+                function func2(){
+                mn++;
+                console.log(mn);
+            }
+            }
+            
+            func1();
+        };
+        测试结果：Uncaught ReferenceError: mn is not defined
+        */
+        //测试2 测试querySelector
+        // window.onload=function(){
+        //     var box=document.querySelector("#box");
+        //     console.log(box.offsetHeight,box.offsetWidth);
+        //     box.style.height=200+'px';
+        //     box.style.width=200+'px';
+        //     console.log(box.offsetHeight,box.offsetWidth);
+        // };
+
+        //测试3 测试一下addEventListener 的event
+            window.onload=function(){
+                var btn=document.querySelector('#btn');
+                btn.addEventListener('mouseover',function fn1(event){
+                    console.log(event.offsetX);
+                    btn.removeEventListener('mouseover',fn1);
+                });
+
+                
+                
+                    
+                
+
+            };
+    </script>
+</body>
+</html>
