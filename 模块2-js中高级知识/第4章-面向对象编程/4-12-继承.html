@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+    /*
+        继承
+            让一个对象拥有另一个对象的属性或者方法，并且自己添加的属性或者方法都不会影响到原来的对象
+
+        属性继承：
+            通过call的方法调用构造函数来继承属性
+
+        方法继承：
+            直接复制   现对象。prototype。方法=原对象。prototype。方法   注意  不能直接赋值prototype
+            for in    遍历 prototype 来赋值
+ 
+    */
+
+    function Person(name,age){
+        this.name=name;
+        this.age=age;
+    };
+    Person.prototype.say=function(){
+        console.log('我是Person'+name+age);
+    }
+
+    function Coder(name,age,job){
+        Person.call(this,name,age);
+
+    };
+    Coder.prototype.say=function(){
+
+    }
+    
+    </script>
+</body>
+</html>

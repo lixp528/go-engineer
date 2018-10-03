@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>    
+    /*
+        赋值和赋引用
+
+        简单数据类型的赋值  就是把值赋值了一下
+
+        复杂数据类型的赋值，不只是把值 复制了一下  并且还复制了一下再内存中的引用地址   也就是赋引用
+            复杂数据类型包括：对象 数组
+
+        比较：
+            基本数据类型的比较 比较的是值相等  值想等 就相等
+            复杂数据类型的比较  比较的不只是值 还有比较引用地址  两个都相等 才相等
+    */
+
+    var str1='kavin';
+    var str2='kavin';
+    console.log(str1==str2);  //true
+
+    var obj1={a:10,b:20};
+    var obj2={a:10,b:20};
+    console.log(obj1==obj2);   //false
+
+
+    </script>
+</body>
+</html>

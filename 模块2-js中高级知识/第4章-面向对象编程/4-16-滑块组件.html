@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .bar{
+            position: relative;
+            height: 30px;
+        }
+        .line{
+            height: 2px;
+            background: #cccc;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -1px;
+            width: 100%;
+        }
+        .slide{
+            width: 30px;
+            height: 100%;
+            background: #DAA520;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+            /* display: none; */
+        }
+    </style>
+</head>
+<body>
+    <!-- 滑块组件 -->
+    <!-- 
+        整体规划 
+            1个构造函数 SlideBar（）{
+                this。settings={
+                    id
+                }
+            }
+            方法：
+            SlideBar。prototype={
+                所有需要的函数写在这 然后需要修改constructor指向
+                函数1 动态创建需要的元素 createDOM（）
+                函数2-5 拖动的函数  drag dragdown dragmove dragup
+                函数6 点击调到相应进度的函数   dragclick
+                函数7  走了多远 getvalue
+                函数7  设置初始值 setvalue
+                函数8 添加自定义事件 on
+
+                constructor：SlideBar
+            }
+            
+     -->
+    <div id=""></div>
+    <div class="bar">
+        <div class="line">
+
+        </div>
+
+        <div class="slide">
+
+        </div>
+    </div>
+
+
+    <script>
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+    /*
+        创建对象
+
+        1 创建对象的方法
+                1 {} 字面量创建对象
+                2 new object（）
+
+        2创建完的对象有两个特征：
+            1 可以添加属性
+            2 添加方法
+    */
+
+        //创建一个人的对象
+    var person={
+        name:"老王",
+        age:30,
+        sing:function(){
+            console.log("会唱歌");
+        }
+    };
+
+    //添加属性和方法
+    person.height="180cm";
+    person.play=function(){
+        console.log("打飞机");
+    };
+
+    console.log(person);
+
+
+    //第二种创建方法
+
+    var person2=new Object();
+    person2.name="小王";
+    person2.age=10;
+    person2.play=function(){
+        console.log("打给及");
+    };
+
+    console.log(person2);
+
+
+    //如果想多次创建同一类对象
+    //封装函数来创建对象
+
+    function newPerson(name,age){
+        var obj=new Object();
+        obj.name=name;
+        obj,age=age;
+        obj.say=function(){
+            console.log("我会说话");
+        };
+        return obj;
+    }
+    var person3=newPerson('piog',25);
+    var person4=newPerson('sdfe',56);
+    console.log(person3);
+    person3.say();
+    console.log(person4);
+    person4.say();
+    </script>
+</body>
+</html>

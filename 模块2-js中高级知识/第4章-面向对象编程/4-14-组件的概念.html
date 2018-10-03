@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        /*
+            js组件：
+                把一个效果或者功能用面向对象的方法封装起来 只提供给用户一些相关的方法活着数据接口
+
+            特点： 容易扩展 容易维护
+
+            组件的组成：
+                1 配置参数
+                        放在初始化函数里面
+
+                2 方法
+                        放在原型里的函数
+
+                3 自定义事件
+                        除了系统以外的事件
+
+
+
+            初始化函数：
+                要想对外提供可以控制的服务 比如 拖动的时候改变颜色  按下的时候改变颜色  实现肯定是要实现好的  留下对外接口  在init里面定义好函数 留下参数 然后在里面一步步传参调用
+                如果想使用未曾提供的服务 是没有办法的 
+
+                在构造函数里面只写必要的属性  其余的交给初始化函数
+                在写初始化函数的时候 加上参数 就可以区别应用
+                在初始化函数里面 调用 this。settings  这个setting里面存传参进来的对象
+
+                实例.init（这里面写上函数）
+
+                在构造函数的init里面 调用这个函数的时候  要调整this指向 
+
+                如何给传入的参数设置默认值：    
+                     this.settings={
+                         下面要调用的函数名： 传入的函数名 || 默认函数名
+                     } 
+
+                     标准的传参数做法：
+                        在构造函数里面写 this.settings={
+                                            这里写入可以对外提供的参数 和默认值
+                                        }
+                                在init里面 使用for in 遍历传入的参数  替换默认值
+        */
+    </script>
+</body>
+</html>

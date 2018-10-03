@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>    
+        /*
+            面向对象常用的属性和方法
+
+
+
+                hasOwnProperty
+                    这个方法是object的
+                    作用： 判断一个属性是不是自己对象身上的
+
+                    参数： 要检测的属性
+
+                    语法：对象。hasOwnProperty（属性）
+
+                    返回值： 
+                            true    自身属性
+                            false   非自身属性   在原型身上也是返回false
+
+
+                constructor
+                    每个对象身上都有这个属性，默认指向对象的构造函数
+                    这个属性不在对象身上 在对象的原型身上
+                    作用：查看对象的构造函数
+
+                    语法：对象.constructor（）
+
+                    返回值：
+                        对象的构造函数
+
+                    注意： 这个属性是可以被修改的 所以会出问题 所以在给--proto-- 赋值的时候 需要明确指出来
+
+
+                for in
+                    通过原型添加的属性 也可以被for in 遍历出来
+                    constructor 是不能被遍历的
+
+
+
+                instanceof
+                    作用 二元运算符
+                        查找对象和构造函数 在原型链上有没有关系
+
+                    语法： 对象 instanceof 构造函数
+
+                    返回值： true 有关系  false  没关系
+
+
+                tostring 
+                    在对象的原型里面
+                    作用：把对象类型转成字符串
+
+                    用 tostring来做类型判断
+                        object。prototype。tostring。call（变量）
+        */
+
+
+        /*
+            call
+                作用： 调用函数 并且改变this指向
+
+                语法： 函数名。call（thisArg，arg1，arg2……）
+
+                参数： thisArg 函数中 this的指向  如果值为null 或者 undefined  this 指向window
+                        arg1，arg2  从第二个参数开始 都是函数里面的参数
+
+                返回值 undefined
+
+
+            apply
+                作用 调用函数 改变this指向
+
+                语法： 函数名。call（thisArg，【arg1，arg2……】）
+
+                参数：thisArg this指向  第一个参数是null或者undefined的时候 指向window
+                    【】传入的参数
+        */
+    </script>
+</body>
+</html>

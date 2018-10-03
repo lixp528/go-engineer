@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #div1{
+            background: red;
+        }
+        #div2{
+            background: green;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+
+
+    <script>
+        window.onload=function(){
+            var div1=new Drag('div1');
+            var div2=new Drag2('div2');
+        };
+
+
+        function Drag(obj){
+            this.obj=document.getElementById(obj);
+            this.disX=0;
+            this.disY=0;
+
+            var This=this;
+            this.obj.onmousedown=function(event){
+                This.down(event);
+            };
+
+        }
+        //下面三个函数分别记录鼠标按下 移动和弹起做的事情
+        Drag.prototype.down=function(ev){
+            this.disX=ev.clientX-this.obj.offsetLeft;
+            this.disY=ev.clientY-this.obj.offsetTop;
+
+            var This=this;
+            document.onmousemove=function(event){
+                This.move(event);
+            }
+            document.onmouseup=function(event){
+                This.up(event);
+            }
+        };
+        Drag.prototype.move=function(ev){
+            this.obj.style.left=ev.clientX-this.disX+'px';
+            this.obj.style.top=ev.clientY-this.disY+'px';
+        };
+        Drag.prototype.up=function(){
+            document.onmousemove=null;  
+        };
+        
+        //继承上面的属性
+        function Drag2(obj){
+            Drag.call(this,'div2');
+
+        }
+        //继承上面的函数
+        for(var attr in Drag.prototype){
+            Drag2.prototype[attr]=Drag.prototype[attr];
+        }
+        Drag2.prototype.move=function(ev){
+            var l=ev.clientX-this.disX;
+            var t=ev.clientY-this.disY;
+            if (l>600){
+                l=600;
+            }
+            if(t>800){
+                t=800;
+            }
+            this.obj.style.left=l+'px';
+            this.obj.style.top=t+'px';
+        };
+
+    </script>
+</body>
+</html>

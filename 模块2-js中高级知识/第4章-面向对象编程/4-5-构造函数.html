@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    /*
+        构造函数 
+            创建对象并初始化 并且需要用new来调用函数   如果不用new调用 就和普通的函数没有区别
+            函数名字首字母大写  和系统保持相同  例如Date Array
+
+        使用new调用构造函数：
+            1 创建一个空对象
+            2 把this指向创建的对象
+            3 执行完函数   自动  返回创建的对象
+
+
+        构造函数的问题：
+                当使用一个构造函数创建两个实例的时候  两个实例中效果相同的函数会创建两份  也就是说 p1.say和p2.say 占了两份内存
+                    这样造成性能下降和资源浪费
+
+                解决方法：  原型：prototype
+                            概念：  
+                                    函数身上的属性
+                            用途
+                                    它身上可以放属性和方法  如果通过构造函数  通过构造函数创建的对象就会具有它身上的属性和方法  
+                            使用方法 
+                                    构造函数.prototype.函数名=function（）{}
+
+
+        为什么实例会拥有构造函数原型的属性：
+        首先需要介绍一个东西
+                __proto__
+                    对象身上的属性，每一个对象身上都会有这个属性，它的值也是一个对象，它的值就是他对应的构造函数的prototype的值
+                也就是说 对象。__proto__ === 构造函数。prototype
+
+            对象之所以能够继承原型身上的属性和方法，就是因为每个对象身上都有一个————proto———— 那————proto————的值指向了构造函数的prototype
+            
+    */
+
+        //普通的构造函数
+    function Person(name,age){
+        this.name=name;
+        this.age=age;
+
+        this.say=function(){
+            console.log('我叫'+this.name);
+        }
+    }
+    var p1=new Person('老王',35);
+    p1.say();
+
+    //使用原型的构造函数
+    function Person2(name,age){
+        this.name=name;
+        this.age=age;
+    }
+    Person2.prototype.say=function(){
+        console.log('我叫'+this.name+'今年'+this.age);
+    }
+    var p2=new Person2('大老李',56);
+    p2.say();
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+    /*
+
+        问题背景：
+            比如 我们三个人都写了同一个函数  同一个函数 都需要执行  怎么做
+
+        自定义事件
+                自己定义的事件  非系统提供  利于多人协作开发 可以扩展js原有事件
+
+                需要用到事件绑定器  事件触发器
+
+
+        自定义事件 其实就是调用函数  在指定的环境下让这个函数触发  相当于事件
+            自定义事件不是真正的事件 不会自己触发 所以我们需要主动去触发
+
+        自定义事件三要素：
+            对象 事件名 事件处理函数
+                
+                1 可以利用对象数据结构里面的 key：value的形式吧事件名字和事件处理函数对应存储起来
+                2 把多个函数放在数组里  顺序全部调用
+
+            定义事件：
+                obj.event={
+                    事件名1 ： 【函数1，函数2】
+                }
+
+            调用事件：   obj.event【事件名1】.fn1
+                        obj.event【事件名1】.fn1
+    */
+    </script>
+
+
+
+<script>
+    //这样就把事件绑定上了
+    function customEvent(obj,eventName,fn){
+        obj.events=obj.events || {};        //如果obj身上已经有这个属性了  就用自己的
+        obj.events[eventName]=obj.events[eventName]||[];  //如果events 里面已经有内容了 就用自己的
+        obj.events[eventName].push(fn);
+    }
+
+    //触发事件：
+    function trigger(obj,eventName){
+        //触发的时候要看一下对象身上有没有这个事件 事件是放在对象身上的events下
+        if(obj.events[eventName]){
+            for(var i=o;i<obj.events[eventName].length;i++){
+                obj.events[eventName][i].call(obj);  //调整this指向
+            }
+        }
+    }
+</script>
+</body>
+</html>
