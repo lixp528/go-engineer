@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        /*
+            ajax 数据交互流程：
+                                                        比喻：
+                1 创建一个ajax对象                          买了一个电话
+                2 填写请求地址                              输入号码    
+                3 发送请求                                  拨号
+                4 等待服务器响应                            等待响应
+                5 接受数据                                  通话
+        */
+    </script>
+
+
+    用户名：<input type="text" name="username" id="">
+    密码：  <input type="password" name="password" id="">
+    <input type="button" value="提交">
+
+    <script>
+        /* 这是一个get请求的流程*/
+        window.onload=function(){
+            var inputs=document.querySelectorAll('input');
+            inouts[2].onclick=function(){
+                var val=inputs[0].value;
+                var val2=inouts[1].value;
+
+                //第一步 创建一个ajax对象
+                var ajax=new XMLHttpRequest;
+
+                //第二步 填写请求地址
+                ajax.open("GET","/try/ajax/demo_get2.php?fname=Henry&lname=Ford",true);  //这个open方法的参数
+
+                //第三步 发送请求
+                ajax.send();
+
+                //第四步 等待服务器响应
+                ajax.onload=function(){
+                    //第五步 接收数据后的处理操作
+                    //例如  span.innerHTML=ajax.responseText;
+                };
+            };
+        };
+
+
+        /* post 的流程
+
+            html：
+                <button type="button" onclick="loadXMLDoc()">请求数据</button>
+                <div id="myDiv"></div>
+            js：
+                function loadXMLDoc(){
+                    var xmlhttp;
+                    //第一步 创建一个ajax对象
+                    if (window.XMLHttpRequest){
+                        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                        xmlhttp=new XMLHttpRequest();
+                    }else{
+                        // IE6, IE5 浏览器执行代码
+                        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+
+
+                    //第二步 填写请求地址
+                    xmlhttp.open("POST","/try/ajax/demo_post2.php",true);
+
+                    //第三步 发送请求
+                    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                    xmlhttp.send("fname=Henry&lname=Ford");
+
+                    //第四步 等待服务器响应
+                    xmlhttp.onreadystatechange=function(){
+                        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                        {
+                            //第五步 接收数据后的处理操作
+                        document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+                        }
+                    }
+                    
+                    
+        */
+    </script>
+</body>
+</html>

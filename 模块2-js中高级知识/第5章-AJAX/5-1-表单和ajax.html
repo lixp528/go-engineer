@@ -71,6 +71,60 @@
 
      <!-- 
         服务器环境安装：
+     -->
+
+
+
+    <!-- 
+        ajax返回json数据
+                ajax.responseText  这个返回数据是一个字符串
+                不能用对象的操作方法来操作
+
+                    json转化为对象：
+                        result=JSON.parse(ajax.responseText);
+
+        
+        如需获得来自服务器的响应，请使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性。
+
+        属性	描述
+        responseText	获得字符串形式的响应数据。
+        responseXML	获得 XML 形式的响应数据。
+     -->
+
+
+     <!-- 
+        var ajax=new XMLHttpRequest
+                在ie8以下都不兼容
       -->
+
+      <!-- 
+
+            get post 的区别
+
+                get  方式：
+                    1 通过地址栏进行数据传输 大小有限制
+                    2 明文传输
+                    3 拼接数据的时候要用encodeURL 转码 不然中文就会乱码
+                    4 不用设置请求头
+                    5 数据拼接在open方法里面
+                    6  会有缓存问题
+                    7 中文编码有问题
+
+                post： 方式：
+                    1 通过send向服务器传输数据  理论上没有长度或者体积限制
+                    2 相对安全
+                    3 不用转吗 在请求头设置了数据格式 不会乱码
+                    4 在send（）前面需要设置请求头
+                            ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+                    5 数据拼接在send（）里面
+                    6没有缓存问题
+                    7 中文没有编码问题
+       -->
+
+
+
+       <!-- 
+           get方式：
+        -->
 </body>
 </html>
