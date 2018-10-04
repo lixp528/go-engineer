@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="www.baidu.com" method="POST"">
+        用户名： <input type="text" name="username" id="">
+           <!-- name的作用是用户后端获取表单提交的数据 -->
+        密码：<input type="password" name="password" id="">
+        <input type="submit" value="提交">
+    </form>
+    
+
+    <!-- 
+
+    表单    
+        action  表单提交地址
+        method  提交方法
+            
+            1 get
+                提交的数据通过地址栏发送，数据添加到地址栏的问好后面
+            2 post 
+                提交的数据通过请求头发送，头部信息 能通过控制台看到
+
+
+
+
+
+    AJAX
+        
+        Ajax 是一种技术方案，但并不是一门新技术，它依赖的是现有的CSS /HTML/JavaScript 
+        而其中最核心的依赖是浏览器提供的   XML HTTPRequest 对象，是这个对象使得浏览器可以发出 Http请求和接收Http响应
+
+        ajax： Asynchronous JavaScript and XML （异步js和xml）
+
+            异步js： js的代码都是从上到下执行的，如果某一块代码没有执行完毕  那后面的代码就不会执行， 异步就是ajax可以做到不按顺序执行
+
+            XML ：   存储数据的一种格式
+                        <name>张三</name>
+                        <age>20</age>
+                        <qq>1764813449646</qq>
+                        <email>fsdfsf464@453.com</email>
+
+                ajax不仅仅能够处理XML格式的数据  还可以处理json、数组、字符串类型的数据
+                现在主要用json
+
+        
+        ajax到底可以做什么 
+
+            js与后端进行数据交互的一种技术，通过请求协商好的接口，来获取到想要的数据
+
+
+        优点： 传输数据的时候回在本页面请求服务器，不同跳转页面，从而减轻服务器压力
+                做到实时验证，减少用户返工率，优化用户体验
+
+
+        ajax是基于http（https）协议，所以只能在http服务器环境下运行，之前我们打开页面是在本地打开，走的是file协议
+
+            在课程中  本地安装服务器环境用 wampserver
+            注意：  1.安装的时候 注意32和64位
+                    2. 打开wampserver前把所有软件都关掉 尤其是下载和视频播放等等
+                    3 www.目录下面不能以中文命名，但是文件里面的html可以
+
+
+     -->
+
+
+     <!-- 
+        服务器环境安装：
+      -->
+</body>
+</html>
