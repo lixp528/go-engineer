@@ -75,6 +75,12 @@
 
 
 
+
+    <!--   使用ajax 依赖于 XMLHTTPRequest对象
+    var ajax=new XMLHttpRequest
+            在ie6以下都不兼容
+    -->
+
     <!-- 
         ajax返回json数据
                 ajax.responseText  这个返回数据是一个字符串
@@ -92,10 +98,7 @@
      -->
 
 
-     <!-- 
-        var ajax=new XMLHttpRequest
-                在ie8以下都不兼容
-      -->
+ 
 
       <!-- 
 
@@ -104,7 +107,7 @@
                 get  方式：
                     1 通过地址栏进行数据传输 大小有限制
                     2 明文传输
-                    3 拼接数据的时候要用encodeURL 转码 不然中文就会乱码
+                    3 拼接数据的时候要用encodeURL 转码 不然中文就会乱码             传的数据里面有中文  拼接字符串你的时候 +encodeURL（中文变量）  接收数据的时候需要decode
                     4 不用设置请求头
                     5 数据拼接在open方法里面
                     6  会有缓存问题
@@ -124,7 +127,20 @@
 
 
        <!-- 
-           get方式：
+           XMLhttprequest 对象的open 方法
+
+                xmlhttp.open("POST","/try/ajax/demo_post2.php",true);
+                    第一个参数 方法
+                    第二个参数  url
+                    第三个参数 true  表示 可以异步
         -->
+
+        <!-- 
+            onload 和 onreadystatechange 事件
+
+            onload 
+
+            onreadystatechange
+         -->
 </body>
 </html>
