@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        /*
+            封装jsonp
+        */
+
+        //obj对象就是对外接口
+        function jsonp(obj){
+            var  settings={
+                url:'',         //地址
+                data:{},        //要发送的数据
+                callBack:'callback',        //url里面存储回调函数名字的变量  //百度搜索里面是cb
+                fnName:'jsonp_'+new Date().getTime(),       //回调函数的名字
+                succ:function(){}           //请求成功的回调函数
+            };
+            
+            //把用户传入的属性代替默认参数
+            for(var attr in obj){
+                settings[attr]=obj[attr];
+            }
+
+
+            //创建script标签：
+            var script=document.createElement('script');
+            script.className='sc';
+            settings.data[settings.callBack]=settings.fnName;
+            var head=document.getElementById('head')[0];
+
+            //把要传的数据拼接起来
+            var ar=[];
+            for(var attr in settings.data){
+                arr.push(attr+'='+settings.data[attr]);
+            }
+            settings.data=arr.join("&");  // 拼接好了以后就不需要本来的data了
+
+
+            //把拼接好的字符串放进sc
+            script.src=settings.url+settings.data;
+
+            //把回调函数定义 并挂在到window下面
+            window[fnName]=function(data){
+                //调用这个函数的时候 先把页面当中已经请求过的script删掉
+                var script=head.getElementByTagName('script');
+                for(var i=0;i<script.length;i++){
+                    if(script[i].className=='sc'){
+                        head.removeChild(script[i]);
+                    }
+                }
+                settings.succ(data);
+            }
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 进度条元素  h5-->
+    <progress value="50" max="100">
+        <span>0%</span>
+    </progress>
+
+    <!-- 
+        <input type="file" name="" id="" multiple='multiple' accept="application/pdf">
+        mutiple是可以选择多个文件 accept  是选择的文件类型
+     -->
+    <input type="file" name="" id="" multiple='multiple' accept="application/pdf">
+    <script>
+        /*
+            ajax实现上传
+                上传只能使用post，并且后台需要处理中文
+                ajax。unload。onprogress  上传的进度事件
+                ev.loaded  已经上传的文件大小
+                ev.total  总文件的大小
+
+                FormData 用来创建与表单格式相同的数据，它是由XMLHTTPRequest 2 级定义，获取到的是一个二进制数据
+                    FormData.append(文件名，文件值)
+                
+                files 上传选中的所有文件列表 放在type为file的表单中
+                    这里包括 最后修改的时间 大小 类型等等
+        */    
+    </script>
+</body>
+</html>

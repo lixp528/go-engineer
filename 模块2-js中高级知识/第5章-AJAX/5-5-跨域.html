@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        /*
+            ajax跨域
+                两个不同域名下的数据进行交互，ajax之所以不能跨域 是因为XMLHTTPRequest 受到同源策略的限制，只能让它访问同源下的数据，不能访问不同源下的数据
+
+                通远策略：
+                    每个网站只能读取同一来源的数据，这里的同一来源指的是主机名，协议和端口号的组合，在没有明确的情况下，不能读写对方的资源，它是浏览器最核心也是最基本的安全功能
+
+                    域名：
+                        baidu
+                        tengxun
+                    协议：
+                        http        超文本传输协议
+                        https       https=ssl+http
+                        file        本地协议
+                        ftp         文件共享协议
+
+                    端口：
+
+            跨域的解决方法：
+                1 在标准浏览器下 XMLHTTPRequest 配合后端设置一个请求权限
+                        XMLHTTPRequest 2 提供的 低版本浏览器不支持
+                2 服务器代理
+                    服务器替你访问你需要的资源
+                3 iframe flash postMesage、websocket
+                    http://www.freebuf.com/articles/web/65468.html
+
+                4 最好的解决方法 jsonp
+                        带src属性的<script><img><iframe><link> 等标签是不需要遵守同源策略的，但是通过src加载的资源，浏览器限制了JavaScript权限，只能读不能写
+
+
+
+            jsonp（json+padding）
+                    1 通过script 标签引入某些数据，是同步模式的，
+                        只有上面的代码加载完成后才能继续加载下面的代码， 一般在用script标签做跨域的时候 不建议提前加载数据，只能读不能写
+                    2 当需要数据的时候创建一个script标签，把需要的数据放在src里面，通过onload去监听是否请求过来
+                        请求完毕就调用传回来的数据 （异步加载）
+                        onload要放在加载前面，如果在后面 就有缓存的问题 如果缓存 就不触发onload了
+                    3 jsonp不能用post请求 只能用get方式请求
+
+            jsonp的回调函数：
+                    1 通过jsonp的方式的数据一般都会放在一个回调函数里面
+                    2 请求到的结果是这样的 getData{'color':['red','green','blue']} 
+                            1 数据放在函数的参数里，可以是任何数据形式（对象，数组）
+                            2 回调函数的名字要么是后端定死的 ，要么是我们在请求地址跟动态加上的
+                                http://localhost/ajax/php/3.php?callBack=ger
+
+
+                    注意：
+                            1 如果是直接在页面里面用script标签引入数据的话，那定义回调函数一定要放在引入数据的前面
+                            2 如果是通过动态创建script标签的话 定义回调函数一定要是全局的 或者挂在到window身上 
+        */
+    </script>
+</body>
+</html>

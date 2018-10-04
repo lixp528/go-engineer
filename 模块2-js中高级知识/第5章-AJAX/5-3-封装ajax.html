@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        /*
+            封装ajax
+
+            分析要给用户留下的接口
+
+                url         地址
+                method      请求方式
+                datatype    返回数据类型 string json xml
+                data        请求的时候传的数据（这应该是一个对象）
+                succ        成功后的回调函数
+                fail        失败后的回调函数
+        */
+
+
+        
+
+        /*
+        传入一个json对象：
+            {
+                'user':'ksix',
+                'password'：'sdfsdf'
+            }
+        */
+        function ajax(json){
+            //setting里面存默认参数
+            var settings={
+                url:'',
+                method:'get',
+                data:{},
+                datatype:'',
+                succ:function(){},
+                fail:function(){}
+            };
+            //用户传的参数 覆盖默认参数
+            for (var attr in json){
+                settings[attr]=json[attr];
+            }
+
+            //把数据拼成正确的格式 正确的格式是 user=ksix&password=sdfsdf
+            var arr=[];
+            for (var attr in settings.data){
+                arr.push(attr+'='+settings.data[attr]);
+            }
+            settings.data=arr.join('&');
+
+            //声明一个xmlhttp对象
+            var xmlhttp;
+                if (window.XMLHttpRequest){
+                    // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                    xmlhttp=new XMLHttpRequest();
+                }else{
+                    // IE6, IE5 浏览器执行代码
+                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+            //设置请求方式：根据method不同 有不同的设置
+            if(settings.method.toLocaleLowerCase()=='get'){
+                xmlhttp.open(settings.method,settings.url+'?'+settings.data+'&'+new Date().getTime(),true);   //+'&'+new Date().getTime() 这一串用来解决缓存
+                xmlhttp.send();
+            }else{
+                xmlhttp.open(settings.method,settings.url,true);
+                xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                xmlhttp.send(settings.data);
+            }
+
+            //设置完成事件的兼容性  这是在设置响应事件  能用onload就用  不能就用onreadystatechange  并且响应函数为ready  另外定义
+            if (typeof(xmlhttp.onload)==='undefined'){
+                xmlhttp.onreadystatechange=ready;
+            }else{
+                xmlhttp.onload=ready;
+            }
+
+            function ready(){
+                //首先应该判断返回数据是json  string 还是xml
+                //json格式如果不处理 访问json。org 下载对应的json2.js 引入就可以
+                if(xmlhttp.readyState===4&&xmlhttp.Status===200){
+                    switch(settings.datatype.toLocaleLowerCase()){
+                        case 'string':
+                            settings.succ(xmlhttp.responseText);
+                        case 'json':
+                            settings.succ(JSON.parse(xmlhttp.responseText));
+                        case 'xml':
+                            settings.succ(xmlhttp.responseXML);
+                    }
+                }else{
+                    settings.fail(xmlhttp.status);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
